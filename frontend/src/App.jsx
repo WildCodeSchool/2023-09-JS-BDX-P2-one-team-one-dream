@@ -1,9 +1,10 @@
 import "./App.css";
+import AboutUs from "./components/AboutUs";
 
 function App() {
   return (
     <div>
-      <h1>Le repo à un problème :/ hihi</h1>
+      <AboutUs />
     </div>
   );
 }
