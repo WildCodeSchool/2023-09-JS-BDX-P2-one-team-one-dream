@@ -1,27 +1,78 @@
-@import url("https://fonts.googleapis.com/css2?family=Advent+Pro:wght@100&family=Dancing+Script&family=EB+Garamond&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=EB+Garamond&display=swap");
 
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.container {
+  width: 100%;
+  margin: 0 auto;
+  max-width: 1280px;
+  padding: 0px 12px;
+}
 .Container_Points {
   background-color: #fff3e0;
   box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
-  width: 100%;
-  margin: 0 auto;
+  padding-top: 20px;
   text-align: center;
   margin-top: 20px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
   padding-bottom: 40px;
+
+  .Title_Points {
+    font-family: "Inter", sans-serif;
+    color: rgb(0, 0, 0);
+    text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    font-size: 25px;
+    padding-top: 10px;
+    grid-column: 1 / -1;
+    margin-bottom: 50px;
+    font-family: "EB Garamond", serif;
+    font-size: 1.5em;
+    text-align: center;
+  }
 
   .Points_Cards {
     width: 100%;
+    text-align: center;
+    font-weight: bold;
+
+    .Cards {
+      width: 100%;
+      max-width: 300px;
+      margin: 0 auto;
+    }
+
+    .image_Cards {
+      padding: 10px 0 10px 0;
+      width: 100%;
+    }
+  }
+}
+
+@media screen and (max-width: 600px) {
+}
+
+/*.Points_Cards {
+    width: 100%;
     display: grid;
-    grid-template-columns: repeat(2, 1fr); /* Deux colonnes égales */
-    grid-template-rows: repeat(2, 1fr); /* Deux lignes égales */
+    grid-template-columns: repeat(2, 1fr); 
+    grid-template-rows: repeat(2, 1fr); 
     gap: 30px;
     text-align: center;
     font: bold;
+
+    .cards{
+      width: 100%;
+
+    .image_Cards {
+      padding: 10px 0 10px 0;
+      width: 100px;
+      height: 120px;
+    }
   }
+}
 }
 
 .Title_Points {
@@ -41,3 +92,4 @@
   width: 500px;
   height: 120px;
 }
+*/

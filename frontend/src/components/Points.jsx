@@ -2,7 +2,7 @@ import "../Points.scss";
 
 function Points() {
   return (
-    <div className="Container_Points">
+    <div className="container Container_Points">
       <h2 className="Title_Points">Et mes GREENPoints, j'en fais quoi?</h2>
       <div className="Points_Cards">
         <div className="Cards">
