@@ -5,8 +5,8 @@ function AboutUs() {
     <div className="Container_AboutUs">
       <h2 className="Title_AboutUs">A Propos...</h2>
       <p className="Description_AboutUs">
-        Fredd, Claire, Cassioppé, Matthieu et Adam ont créé un site pour
-        calculer l'empreinte carbone des citoyens dans le but de sensibiliser et
+        Fredd, Clair, Cassioppé, Matthieu et Adam ont créé un site pour calculer
+        l'empreinte carbone des citoyens dans le but de sensibiliser et
         d'encourager la réduction des émissions de carbone, contribuant ainsi à
         la lutte contre le changement climatique. Leur site fournit un outil
         convivial pour évaluer l'impact environnemental individuel et offre des
