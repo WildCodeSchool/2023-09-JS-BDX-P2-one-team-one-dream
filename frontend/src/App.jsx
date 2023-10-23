@@ -1,9 +1,10 @@
 import "./App.css";
+import Points from "./components/Points";
 
 function App() {
   return (
     <div>
-      <h1>Le repo à un problème :/ hihi</h1>
+      <Points />
     </div>
   );
 }
