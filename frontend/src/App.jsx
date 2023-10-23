@@ -1,4 +1,3 @@
-import "./App.css";
 import Points from "./components/Points";
 
 function App() {
