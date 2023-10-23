@@ -1,9 +1,10 @@
 import "./App.css";
+import Actuality from "./components/Actuality";
 
 function App() {
   return (
     <div>
-      <h1>Le repo à un pb? Noooon ca yest c'est réglé!</h1>
+      <Actuality />
     </div>
   );
 }
