@@ -34,3 +34,21 @@
 .Image_AboutUs {
   padding: 10px 0 10px 0;
 }
+
+@media screen and (min-width: 768px) {
+  .Container_AboutUs {
+    width: 80%;
+  }
+
+  .Title_AboutUs {
+    font-size: 40px;
+  }
+
+  .Description_AboutUs {
+    font-size: 20px;
+  }
+
+  .Image_AboutUs {
+    width: 500px;
+  }
+}
