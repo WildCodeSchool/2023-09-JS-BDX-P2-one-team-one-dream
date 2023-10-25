@@ -1,5 +1,5 @@
 import React from "react";
-import "../Actuality.scss";
+import "../styles/Actuality.scss";
 
 const Events = [
   {
@@ -8,21 +8,21 @@ const Events = [
     link: "https://darwin.camp/?doing_wp_cron=1697918702.9610590934753417968750",
   },
   {
-    title: "SUIVEZ L'ASSO PROJECT RESCUE OCEAN",
-    image: "src/assets/actuality-img/img-rescue.jpg",
-    link: "https://projectrescueocean.org/",
-  },
-  {
     title: "LES APEROS ECOLOS SUR BORDEAUX",
     image: "src/assets/actuality-img/img-apero.png",
     link: "https://www.facebook.com/aperos.ecolos.Bordeaux",
+  },
+  {
+    title: "SUIVEZ L'ASSO PROJECT RESCUE OCEAN",
+    image: "src/assets/actuality-img/img-rescue.jpg",
+    link: "https://projectrescueocean.org/",
   },
 ];
 
 function Actuality() {
   return (
     <div className="container">
-      <h1>ACTUALITÉS</h1>
+      <h2 className="title-actu">ACTUALITÉS</h2>
       <div className="actu-container">
         {Events.map((event) => {
           return (
@@ -30,7 +30,7 @@ function Actuality() {
               <a href={event.link}>
                 <img className="img" src={event.image} alt={event.title} />
               </a>
-              <h4>{event.title}</h4>
+              <h4 className="text-actu">{event.title}</h4>
             </div>
           );
         })}

@@ -1,4 +1,4 @@
-import "../Points.scss";
+import "../styles/Points.scss";
 
 function Points() {
   return (

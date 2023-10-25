@@ -1,17 +1,17 @@
-import "../AboutUsStyle.scss";
+import "../styles/AboutUsStyle.scss";
 
 function AboutUs() {
   return (
     <div className="Container_AboutUs">
-      <h2 className="Title_AboutUs">A Propos...</h2>
+      <h2 className="Title_AboutUs">A PROPOS...</h2>
       <p className="Description_AboutUs">
-        Fredd, Claire, Cassioppé, Matthieu et Adam ont créé un site pour
-        calculer l'empreinte carbone des citoyens dans le but de sensibiliser et
-        d'encourager la réduction des émissions de carbone, contribuant ainsi à
-        la lutte contre le changement climatique. Leur site fournit un outil
-        convivial pour évaluer l'impact environnemental individuel et offre des
-        conseils pour adopter un mode de vie plus durable, visant ainsi à
-        favoriser une société plus respectueuse de l'environnement.
+        Notre génération étant particulièrement concernée par le changement
+        climatique, nous avons voulu nous inscrire dans une démarche responsable
+        et écologique. Ainsi, permettre à chacun de connaître son empreinte
+        carbone favorise la prise de conscience de son implication personnelle.
+        Nous avons la ferme conviction que c’est la somme de belles actions et
+        d’élans solidaires pour notre planète qui permettront d’évoluer vers une
+        communauté toujours plus respectueuse de l’environnement.
       </p>
       <img
         className="Image_AboutUs"
