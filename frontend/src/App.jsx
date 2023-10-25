@@ -4,6 +4,7 @@ import Actuality from "./components/Actuality";
 import AboutUs from "./components/AboutUs";
 import Footer from "./components/Footer";
 import Header from "./components/Header";
+import Button from "./components/Button";
 
 function App() {
   return (
@@ -11,6 +12,7 @@ function App() {
       <div className="content-wrap">
         <Header />
         <div className="components">
+          <Button />
           <Description />
           <Actuality />
           <AboutUs />
