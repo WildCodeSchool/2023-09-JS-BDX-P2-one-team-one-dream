@@ -1,11 +1,11 @@
 import "./App.css";
+import Description from "./components/Description";
 
 function App() {
   return (
     <div>
-      <h1>Le repo à un problème :/ hihi</h1>
+      <Description />
     </div>
   );
 }
-
 export default App;
