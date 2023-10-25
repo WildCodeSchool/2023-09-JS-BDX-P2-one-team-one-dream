@@ -1,3 +1,4 @@
+import Points from "./components/Points";
 import "./styles/App.scss";
 import Actuality from "./components/Actuality";
 import AboutUs from "./components/AboutUs";
@@ -10,6 +11,7 @@ function App() {
       <div className="content-wrap">
         <Header />
         <div>
+          <Points />
           <Actuality />
           <AboutUs />
         </div>
