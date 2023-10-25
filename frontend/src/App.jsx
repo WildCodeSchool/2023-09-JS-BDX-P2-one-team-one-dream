@@ -10,7 +10,7 @@ function App() {
     <div className="page-container">
       <div className="content-wrap">
         <Header />
-        <div>
+        <div className="components">
           <Description />
           <Actuality />
           <AboutUs />

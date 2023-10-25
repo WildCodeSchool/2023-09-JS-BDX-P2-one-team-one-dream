@@ -5,20 +5,23 @@
   position: relative;
   flex-direction: row;
   justify-content: space-between;
+  align-items: center;
   background-color: rgba(123, 199, 96, 0.62);
+  height: 30px;
 
-  h2 {
-    font-family: "Jomhuria", serif;
-    font-size: 15px;
-    padding: 0px 30px;
+  .text-footer {
+    font-family: "Inter", sans-serif;
+    font-size: 8px;
+    padding: 0px 20px;
     color: #358211;
   }
 }
 
 @media screen and (min-width: 768px) {
   .footer {
-    h2 {
-      font-size: 25px;
+    height: 50px;
+    .text-footer {
+      font-size: 15px;
     }
   }
 }

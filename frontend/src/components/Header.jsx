@@ -98,7 +98,7 @@ function Header() {
         </h1>
       </div>
       <div className="banner">
-        <h2>ET VOUS ÇA GREEN ?</h2>
+        <h2 className="green">ET VOUS ÇA GREEN ?</h2>
       </div>
     </>
   );

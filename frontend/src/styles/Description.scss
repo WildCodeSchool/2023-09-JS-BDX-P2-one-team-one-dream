@@ -1,17 +1,17 @@
 @import url("https://fonts.google.com/share?selection.family=Quattrocento");
 
 .bio {
-  font-family: Quattrocento;
+  font-family: "Quattrocento Sans", sans-serif;
   font-size: 14px;
   color: rgb(0, 0, 0);
-  margin: auto;
+  margin: 5px auto 0;
   width: 70%;
-  text-align: justify;
-  text-align: center;
+  // text-align: justify;
+  text-align: left;
 }
 
 @media screen and (min-width: 768px) {
-  .bioGP {
-    font-size: large;
+  .bio {
+    font-size: 20px;
   }
 }
