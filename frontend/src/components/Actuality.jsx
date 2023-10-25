@@ -1,19 +1,19 @@
 import React from "react";
-import "./Actuality.scss";
+import "../Actuality.scss";
 
 const Events = [
   {
-    title: "A Darwin, tous les mercredis",
+    title: "A DARWIN TOUS LES MERCREDIS",
     image: "src/assets/actuality-img/img-darwin.jpg",
     link: "https://darwin.camp/?doing_wp_cron=1697918702.9610590934753417968750",
   },
   {
-    title: "Suivez l'asso Project Rescue Ocean",
+    title: "SUIVEZ L'ASSO PROJECT RESCUE OCEAN",
     image: "src/assets/actuality-img/img-rescue.jpg",
     link: "https://projectrescueocean.org/",
   },
   {
-    title: "Les apéros écolos sur Bordeaux",
+    title: "LES APEROS ECOLOS SUR BORDEAUX",
     image: "src/assets/actuality-img/img-apero.png",
     link: "https://www.facebook.com/aperos.ecolos.Bordeaux",
   },
