@@ -1,14 +1,22 @@
-import "./App.css";
 import Description from "./components/Description";
+import "./styles/App.scss";
 import Actuality from "./components/Actuality";
 import AboutUs from "./components/AboutUs";
+import Footer from "./components/Footer";
+import Header from "./components/Header";
 
 function App() {
   return (
-    <div>
-      <Description />
-      <Actuality />
-      <AboutUs />
+    <div className="page-container">
+      <div className="content-wrap">
+        <Header />
+        <div>
+          <Description />
+          <Actuality />
+          <AboutUs />
+        </div>
+      </div>
+      <Footer />
     </div>
   );
 }
