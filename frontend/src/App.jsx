@@ -1,10 +1,15 @@
-import "./App.css";
+import "./styles/App.scss";
+
+import Footer from "./components/Footer";
+import Header from "./components/Header";
 
 function App() {
   return (
-    <div>
-      <h1>Le repo à un problème :/ hihi</h1>
-      <p>yo</p>
+    <div className="page-container">
+      <div className="content-wrap">
+        <Header />
+      </div>
+      <Footer />
     </div>
   );
 }
