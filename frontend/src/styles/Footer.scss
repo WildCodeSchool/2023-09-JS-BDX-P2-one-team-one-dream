@@ -1,0 +1,24 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@200&family=Jomhuria&display=swap");
+
+.footer {
+  display: flex;
+  position: relative;
+  flex-direction: row;
+  justify-content: space-between;
+  background-color: rgba(123, 199, 96, 0.62);
+
+  h2 {
+    font-family: "Jomhuria", serif;
+    font-size: 15px;
+    padding: 0px 30px;
+    color: #358211;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .footer {
+    h2 {
+      font-size: 25px;
+    }
+  }
+}
