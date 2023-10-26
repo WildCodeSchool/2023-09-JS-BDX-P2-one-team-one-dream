@@ -9,8 +9,36 @@ on:
       - dev
 
 jobs:
+  install-dependencies:
+    name: Install Dependencies using cache
+    runs-on: ubuntu-latest
+
+    permissions:
+      checks: write
+      contents: write
+
+    steps:
+      - name: Check out Git repository
+        uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+
+      - name: Cache dependencies
+        id: cache-nextjob
+        uses: actions/cache@v3
+        with:
+          path: |
+            ./node_modules
+            ./backend/node_modules
+            ./frontend/node_modules
+          key: ${{ runner.os }}-${{ hashFiles('**/package-lock.json') }}
+
+      - name: Install package dependencies
+        run: npm install
+
   lint:
     name: Run linters
+    needs: install-dependencies
     runs-on: ubuntu-latest
 
     permissions:
@@ -36,7 +64,7 @@ jobs:
             ./node_modules
             ./backend/node_modules
             ./frontend/node_modules
-          key: ${{ runner.os }}-${{ env.MODULE_CACHE_NAME }}-${{ hashFiles('**/package-lock.json') }}
+          key: ${{ runner.os }}-${{ hashFiles('**/package-lock.json') }}
 
       - name: Install package dependencies
         if: steps.cache-nextjob.outputs.cache-hit != 'true'
