@@ -12,8 +12,8 @@ function App() {
       <div className="content-wrap">
         <Header />
         <div className="components">
-          <Button />
           <Description />
+          <Button />
           <Actuality />
           <AboutUs />
         </div>
