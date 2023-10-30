@@ -4,7 +4,7 @@ import "../styles/Button.scss";
 function Button() {
   return (
     <button type="button" className="buttonQuiz">
-      Calcul ton CO2
+      Calcule ton CO2
     </button>
   );
 }
