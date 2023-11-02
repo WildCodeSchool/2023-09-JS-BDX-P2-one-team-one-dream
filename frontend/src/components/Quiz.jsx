@@ -1,12 +1,14 @@
+/* eslint-disable no-restricted-syntax */
+/* eslint-disable no-nested-ternary */
 import React, { useState } from "react";
 import "../styles/Quiz.scss";
 
 const questionList = [
   {
     id: 1,
-    needCallAPI: true / false,
-    question: "Dans quel pays vivez vous ?",
+    question: "Dans quel pays vivez-vous ?",
     type: "select",
+    possibilities: ["France", "Angleterre", "Espagne", "Etats-Unis"],
   },
   {
     id: 2,
@@ -15,114 +17,213 @@ const questionList = [
   },
   {
     id: 3,
-    question: "Avez vous pris l'avion ce mois-ci ?",
-    type: "input",
+    question: "Avez-vous pris l'avion ce mois-ci ?",
+    type: "button",
+    possibilities: ["Oui", "Non"],
   },
   {
     id: 4,
-    question: "Combien de vol avez vous effectuez ?",
-    type: "button",
-  },
-  {
-    id: 5,
-    question: "Renseignez vos aéroports (Départ, Arrivée)",
-    type: "select",
-  },
-  {
-    id: 6,
-    question: "Avez-vous une voiture ?",
-    type: "button",
-  },
-  {
-    id: 7,
-    question: "Quel type de voiture ?",
-    type: "button",
-  },
-  {
-    id: 8,
-    question: "Combien de km parcourez-vous chaque mois",
+    question: "Combien de vols avez-vous effectués ?",
     type: "input",
   },
   {
-    id: 9,
-    question: "Quel est vorte régime alimentaire",
+    id: 5,
+    question: "Aéroport de départ",
+    type: "select",
+    possibilities: ["cdg", "lhr", "sfo", "yyz"],
+  },
+  {
+    id: 6,
+    question: "Aéroport d'arrivée",
+    type: "select",
+    possibilities: ["cdg", "lhr", "sfo", "yyz"],
+  },
+  {
+    id: 7,
+    question: "Avez-vous une voiture ?",
     type: "button",
+    possibilities: ["Oui", "Non"],
+  },
+  {
+    id: 8,
+    question: "Quel type de voiture ?",
+    type: "button",
+    possibilities: ["Electrique", "Diesel", "Essence"],
+  },
+  {
+    id: 9,
+    question: "Combien de kilomètres parcourez-vous chaque mois",
+    type: "input",
   },
   {
     id: 10,
-    question:
-      "À quelle fréquence par semaine consommez-vous de la viande rouge",
-    type: "inupt",
+    question: "Quel est votre régime alimentaire",
+    type: "button",
+    possibilities: ["Carnivore", "Vegan"],
   },
   {
     id: 11,
-    question: "Quel est votre consommation d'eay par mois ? (en litre)",
+    question:
+      "À quelle fréquence par semaine consommez-vous de la viande rouge",
+    type: "input",
+  },
+  {
+    id: 12,
+    question: "Quel est votre consommation d'eau par mois ? (en litre)",
     type: "input",
   },
 ];
 
-function Result() {
-  const [electricityValue, setElectricityValue] = useState("");
-  const [estimate, setEstimate] = useState(null);
+function Result({ estimate }) {
+  console.log("Estimate:", estimate); // Ajoutez ce log pour vérifier si `estimate` est correct
 
-  const handleChange = (e) => {
-    setElectricityValue(e.target.value);
-  };
-
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-
-    const response = await fetch(
-      "https://www.carboninterface.com/api/v1/estimates",
-      {
-        method: "POST",
-        headers: {
-          Authorization: "Bearer CtNR923u1EZPoVuyuENy3w",
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          type: "electricity",
-          electricity_unit: "kwh",
-          electricity_value: electricityValue,
-          country: "us",
-          state: "fl",
-        }),
-      }
-    );
-
-    const data = await response.json();
-    setEstimate(data.data.attributes);
-  };
-
-  return (
+  return estimate ? (
     <div>
-      <p>{questionList.question[1]}</p>
-      <form onSubmit={handleSubmit}>
-        <input type="text" value={electricityValue} onChange={handleChange} />
-        <button type="submit">Envoyer</button>
-      </form>
-      {estimate && <p>Résultat estimé : {estimate.carbon_kg} kg de carbone</p>}
+      <p>Résultat estimé : {estimate.carbon_kg} kg de carbone</p>
+    </div>
+  ) : (
+    <div>
+      <p>En attente d'estimation...</p>
     </div>
   );
 }
 
-function Quiz({ isOpenPopup, setIsOpenPopup }) {
+function Quiz() {
+  const [responses, setResponses] = useState({});
+  const [currentQuestion, setCurrentQuestion] = useState(0);
+  const [estimate, setEstimate] = useState(null);
+
+  const handleSubmit = async (event) => {
+    event.preventDefault();
+    const electricityValue = responses[2];
+    const hasTakenFlight = responses[3] === "Oui";
+    const flightDetails = hasTakenFlight
+      ? {
+          departure_airport: [responses[4], responses[5]],
+          destination_airport: [responses[5], responses[4]],
+        }
+      : null;
+
+    if (electricityValue) {
+      const electricityResponse = await fetch(
+        "https://www.carboninterface.com/api/v1/estimates",
+        {
+          method: "POST",
+          headers: {
+            Authorization: "Bearer CtNR923u1EZPoVuyuENy3w",
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            type: "electricity",
+            electricity_unit: "kwh",
+            electricity_value: electricityValue,
+            country: "us",
+            state: "fl",
+          }),
+        }
+      );
+
+      const electricityData = await electricityResponse.json();
+      console.log("Estimation pour l'électricité : ", electricityData);
+      setEstimate(electricityData.data.attributes);
+    }
+
+    if (hasTakenFlight && flightDetails) {
+      const flightResponse = await fetch(
+        "https://www.carboninterface.com/api/v1/estimates",
+        {
+          method: "POST",
+          headers: {
+            Authorization: "Bearer CtNR923u1EZPoVuyuENy3w",
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            type: "flight",
+            passengers: 1,
+            legs: [flightDetails],
+          }),
+        }
+      );
+
+      const flightData = await flightResponse.json();
+      setEstimate((prevEstimate) => {
+        return {
+          ...prevEstimate,
+          flight: flightData,
+        };
+      });
+    }
+  };
+  const handleNextQuestion = () => {
+    if (currentQuestion < questionList.length - 1) {
+      setCurrentQuestion(currentQuestion + 1);
+    }
+  };
+
   return (
-    <div className={isOpenPopup ? "Popup" : "Popup hidden"}>
-      <div className="content">
-        <div className="header">
-          <button
-            className="close"
-            type="button"
-            onClick={() => setIsOpenPopup(false)}
-          >
-            X
-          </button>
-        </div>
-        <div>
-          <Result />
-        </div>
+    <div>
+      <div>
+        <h1>Formulaire</h1>
+        <form onSubmit={handleSubmit}>
+          {questionList.map((q, index) => (
+            <div
+              key={q.id}
+              style={{
+                display: index === currentQuestion ? "block" : "none",
+              }}
+            >
+              <p>{q.question}</p>
+              {q.type === "button" ? (
+                q.possibilities.map((possibility) => (
+                  <label key={possibility}>
+                    <input
+                      type="radio"
+                      name={`question-${q.id}`}
+                      value={possibility}
+                      checked={responses[q.id] === possibility}
+                      onChange={(e) =>
+                        setResponses({ ...responses, [q.id]: e.target.value })
+                      }
+                    />
+                    {possibility}
+                  </label>
+                ))
+              ) : q.type === "input" ? (
+                <input
+                  type="text"
+                  value={responses[q.id] || ""}
+                  onChange={(e) =>
+                    setResponses({ ...responses, [q.id]: e.target.value })
+                  }
+                />
+              ) : q.type === "select" ? (
+                <select
+                  value={responses[q.id] || ""}
+                  onChange={(e) =>
+                    setResponses({ ...responses, [q.id]: e.target.value })
+                  }
+                >
+                  <option value="">Sélectionnez une option</option>
+                  {q.possibilities.map((possibility) => (
+                    <option key={possibility} value={possibility}>
+                      {possibility}
+                    </option>
+                  ))}
+                </select>
+              ) : null}
+              {index < questionList.length - 1 && (
+                <button type="button" onClick={handleNextQuestion}>
+                  Suivant
+                </button>
+              )}
+            </div>
+          ))}
+          {currentQuestion === questionList.length - 1 && (
+            <button type="submit">Envoyer</button>
+          )}
+        </form>
       </div>
+      <div>{estimate && <Result estimate={estimate} />}</div>
     </div>
   );
 }
