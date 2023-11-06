@@ -1,21 +1,20 @@
-.Popup {
+.modal {
   position: fixed;
   background: rgba(0, 0, 0, 0.6);
   top: 0;
   left: 0;
   right: 0;
   bottom: 0;
-
   display: flex;
   align-items: center;
   justify-content: center;
 
   .content {
     position: relative;
-    background: white;
+    background: #fff3e0;
     border-radius: 8px;
-    width: 350px;
-    min-height: 400px;
+    width: 600px;
+    min-height: 500px;
     padding: 20px 10px;
     text-align: center;
     box-sizing: border-box;

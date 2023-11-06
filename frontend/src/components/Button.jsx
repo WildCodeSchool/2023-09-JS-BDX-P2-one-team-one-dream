@@ -1,21 +1,22 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import "../styles/Button.scss";
-import Quiz from "./Quiz";
+import Quizz from "./Quizz";
 
 function Button() {
-  const [isOpenPopup, setIsOpenPopup] = useState(false);
+  const [togglePopUp, setTogglePopUp] = useState(false);
 
   return (
-    <>
+    <div>
       <button
-        type="button"
         className="buttonQuiz"
-        onClick={() => setIsOpenPopup(true)}
-      >
+        type="button"
+        onClick={() => setTogglePopUp(true)}      >
         Calcule ton CO2
       </button>
-      {isOpenPopup && <Quiz setIsOpenPopup={setIsOpenPopup} />}
-    </>
+      <div>
+        {togglePopUp && <Quizz setTogglePopUp={setTogglePopUp} />}
+      </div>
+    </div>
   );
 }
 
