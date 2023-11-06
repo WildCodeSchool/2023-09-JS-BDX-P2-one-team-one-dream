@@ -19,21 +19,62 @@ function QuizzFlight({ setCurrentQuestion }) {
           Non
         </button>
       </div>
-      {showFlightQuestions && (
-        <div className="flightquestionscontent">
-          <div>
-            <label htmlFor="howManyFlight">
-              Combien de vols avez-vous effectués ?
-            </label>
-            <input type="number" name="howManyFlight" id="howManyFlight" />
-            {/* En fonction du nombre de vol effectués, afficher un certains nombre de select. 4 select = 1 aller retour */}
+      {
+        showFlightQuestions && (
+          <div className="flightquestionscontent">
+            <div>
+              <label htmlFor="howManyFlight">
+                Combien de vols avez-vous effectués ?
+              </label>
+              <input type="number" name="howManyFlight" id="howManyFlight" onChange={(e) => setShowAirportSelectors(true)} />
+            </div>
           </div>
-        </div>
-      )}
-    </div >
-    // Stocker les valeurs de départ et d'arrivée selectionné et en fonction du nombre de vol multiplier la réponse du kilos de carbone
+        )
+      }
+      {
+        showAirportSelectors && (
+          <div>
+            <div>
+              <label htmlFor="departures">Renseignez votre aéroport de départ:</label>
+              <select name="departures" id="departures">
+                <option value="cdg">Paris</option>
+                <option value="bod">Bordeaux</option>
+              </select>
+            </div>
+            <div>
+              <label htmlFor="arrivals">Renseignez votre aéroport d'arrivé:</label>
+              <select name="arrivals" id="arrivals">
+                <option value="mad">Madrid</option>
+                <option value="cdg">Paris</option>
+                <option value="lon">Londres</option>
+                <option value="jfk">New-York</option>
+                <option value="yul">Montreal</option>
+                <option value="sin">Singapour</option>
+              </select>
+            </div>
+            <div>
+              <label htmlFor="departures">Renseignez votre aéroport de départ:</label>
+              <select name="departures" id="departures">
+                <option value="mad">Madrid</option>
+                <option value="lon">Londres</option>
+                <option value="jfk">New-York</option>
+                <option value="cdg">Paris</option>
+                <option value="yul">Montreal</option>
+                <option value="sin">Singapour</option>
+              </select>
+            </div>
+            <div>
+              <label htmlFor="arrivals">Renseignez votre aéroport d'arrivé:</label>
+              <select name="arrivals" id="arrivals" >
+                <option value="cdg">Paris</option>
+                <option value="bod">Bordeaux</option>
+              </select>
+            </div>
+          </div>
+        )
+      }
+    </div>
   )
-
 }
 
 export default QuizzFlight;
