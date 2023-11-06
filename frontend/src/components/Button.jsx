@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import "../styles/Button.scss";
-import Quiz from "./Quiz";
+import MyForm from "./Myform";
 
 function Button() {
   const [isOpenPopup, setIsOpenPopup] = useState(false);
@@ -14,7 +14,7 @@ function Button() {
       >
         Calcule ton CO2
       </button>
-      {isOpenPopup && <Quiz setIsOpenPopup={setIsOpenPopup} />}
+      {isOpenPopup && <MyForm setIsOpenPopup={setIsOpenPopup} />}
     </>
   );
 }
