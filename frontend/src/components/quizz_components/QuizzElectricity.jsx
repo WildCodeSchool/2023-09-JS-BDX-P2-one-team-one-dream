@@ -9,7 +9,7 @@ function QuizzElectricity() {
       <label htmlFor="electricity-value">
         Quel est votre consommation d'électricité par mois (en kWh) ?
       </label>
-      <input type="number" name="electricity-value" id="electricity-value" onChange={(e) => setQuizzElectricityResponse(e.target.value)} />
+      <input type="number" name="electricity-value" id="electricity-value" min="0" onChange={(e) => setQuizzElectricityResponse(e.target.value)} />
     </div>
   )
 }

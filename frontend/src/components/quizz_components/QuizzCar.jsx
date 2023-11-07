@@ -37,7 +37,7 @@ function QuizzCar({ setCurrentQuestion }) {
               <label htmlFor="howManyKm">
                 Combien de kilomètres parcourez-vous chaque mois?
               </label>
-              <input type="number" name="howManyKm" id="howManyKm" onChange={(e) => setQuizzCarResponse(e.target.value)} />
+              <input type="number" name="howManyKm" id="howManyKm" min="0" onChange={(e) => setQuizzCarResponse(e.target.value)} />
             </div>
           </div>
         )

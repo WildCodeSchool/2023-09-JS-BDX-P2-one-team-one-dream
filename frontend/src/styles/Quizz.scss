@@ -19,13 +19,32 @@
     text-align: center;
     box-sizing: border-box;
 
-    .header {
+    .question_container {
+      display: flex;
+      height: 70vh;
+      flex-wrap: wrap;
+      flex-direction: column;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    label {
+      display: flex;
+      flex-direction: column;
+      gap: 30px;
+    }
+
+    .quizz_header {
       margin: 0;
       padding: 10px;
-      justify-content: flex-end;
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
       right: 20px;
 
       .close {
+        right: -60px;
+        top: -20px;
         color: red;
         position: relative;
       }

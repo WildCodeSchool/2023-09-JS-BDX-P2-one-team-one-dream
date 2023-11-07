@@ -28,12 +28,13 @@ function QuizzFood({ setCurrentQuestion }) {
       {showFoodQuestions && (
         <div>
           <label htmlFor="howManyTimes">
-            A quel fréquence consommez-vous de la viande rouge?
+            En semaine, a quelle fréquence consommez-vous de la viande rouge?
           </label>
           <input
             type="number"
             name="howManyTimes"
             id="howManyTimes"
+            min="1"
             onChange={(e) => setQuizzFoodResponse(e.target.value)}
           />
         </div>
