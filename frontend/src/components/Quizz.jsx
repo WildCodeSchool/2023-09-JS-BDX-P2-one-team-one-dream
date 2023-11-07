@@ -18,37 +18,46 @@ function Quizz({ setTogglePopUp }) {
     }
   };
 
-
   return (
     <div className="modal">
       <div className="content">
         <div className="quizz_header">
           <h1>Calcule ton empreinte carbone!</h1>
-          <button className="close" type="button" onClick={() => setTogglePopUp(false)}>X</button>
+          <button
+            className="close"
+            type="button"
+            onClick={() => setTogglePopUp(false)}
+          >
+            X
+          </button>
+        </div>
+        <div>{currentQuestion === 0 && <QuizzElectricity />}</div>
+        <div>
+          {currentQuestion === 1 && (
+            <QuizzFlight setCurrentQuestion={setCurrentQuestion} />
+          )}
         </div>
         <div>
-          {currentQuestion === 0 && <QuizzElectricity />}
+          {currentQuestion === 2 && (
+            <QuizzCar setCurrentQuestion={setCurrentQuestion} />
+          )}
         </div>
         <div>
-          {currentQuestion === 1 && <QuizzFlight setCurrentQuestion={setCurrentQuestion} />}
+          {currentQuestion === 3 && (
+            <QuizzFood setCurrentQuestion={setCurrentQuestion} />
+          )}
         </div>
-        <div>
-          {currentQuestion === 2 && <QuizzCar setCurrentQuestion={setCurrentQuestion} />}
-        </div>
-        <div>
-          {currentQuestion === 3 && <QuizzFood setCurrentQuestion={setCurrentQuestion} />}
-        </div>
-        <div>
-          {currentQuestion === 4 && <QuizzWater />}
-        </div>
+        <div>{currentQuestion === 4 && <QuizzWater />}</div>
         {showSubmitButton ? (
           <button type="submit">Envoyer</button>
         ) : (
-          <button onClick={handleNextClick}>Suivant</button>
+          <button type="button" onClick={handleNextClick}>
+            Suivant
+          </button>
         )}
       </div>
     </div>
-  )
+  );
 }
 
 export default Quizz;

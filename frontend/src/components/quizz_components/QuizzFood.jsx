@@ -13,7 +13,7 @@ function QuizzFood({ setCurrentQuestion }) {
             type="button"
             name="typeOfFood"
             id="typeOfFood"
-            onClick={(e) => setShowFoodQuestions(true)}
+            onClick={() => setShowFoodQuestions(true)}
           >
             Carnivore
           </button>
@@ -21,7 +21,7 @@ function QuizzFood({ setCurrentQuestion }) {
             type="button"
             name="typeOfFood"
             id="typeOfFood"
-            onClick={(e) => setCurrentQuestion(4)}
+            onClick={() => setCurrentQuestion(4)}
           >
             Végétarien
           </button>

@@ -8,9 +8,15 @@ function QuizzWater() {
       <label htmlFor="numberOfLiter">
         Quel est votre consommation d'eau par mois ? (en litre)
       </label>
-      <input type="number" name="numberOfLiter" id="numberOfLiter" min="0" onChange={(e) => setQuizzWaterResponse(e.target.value)} />
-    </div >
-  )
+      <input
+        type="number"
+        name="numberOfLiter"
+        id="numberOfLiter"
+        min="0"
+        onChange={(e) => setQuizzWaterResponse(e.target.value)}
+      />
+    </div>
+  );
 }
 
 export default QuizzWater;
