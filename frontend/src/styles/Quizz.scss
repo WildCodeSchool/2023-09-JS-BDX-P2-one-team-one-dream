@@ -1,0 +1,53 @@
+.modal {
+  position: fixed;
+  background: rgba(0, 0, 0, 0.6);
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  .content {
+    position: relative;
+    background: #fff3e0;
+    border-radius: 8px;
+    width: 600px;
+    min-height: 500px;
+    padding: 20px 10px;
+    text-align: center;
+    box-sizing: border-box;
+
+    .question_container {
+      display: flex;
+      height: 70vh;
+      flex-wrap: wrap;
+      flex-direction: column;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    label {
+      display: flex;
+      flex-direction: column;
+      gap: 30px;
+    }
+
+    .quizz_header {
+      margin: 0;
+      padding: 10px;
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      right: 20px;
+
+      .close {
+        right: -60px;
+        top: -20px;
+        color: red;
+        position: relative;
+      }
+    }
+  }
+}
