@@ -4,7 +4,7 @@ function QuizzWater() {
   const [quizzWaterResponse, setQuizzWaterResponse] = useState(0);
 
   return (
-    <div>
+    <div className="question">
       <label htmlFor="numberOfLiter">
         Quel est votre consommation d'eau par mois ? (en litre)
       </label>

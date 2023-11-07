@@ -5,35 +5,38 @@ function QuizzCar({ setCurrentQuestion }) {
   const [showCarQuestions, setShowCarQuestions] = useState(false);
 
   return (
-    <>
-      <div>
+    < div className="question">
+      < div >
         <label htmlFor="didYouHaveACar">
           Avez vous une voiture?
         </label>
-        <button type="button" name="didYouHaveACar" id="didYouHaveACar" onClick={(e) => setShowCarQuestions(true)}>
-          Oui
-        </button>
-        <button type="button" name="didYouHaveACar" id="didYouHaveACar" onClick={(e) => setCurrentQuestion(3)}>
-          Non
-        </button>
-      </div>
+        <div>
+          <button type="button" name="didYouHaveACar" id="didYouHaveACar" onClick={(e) => setShowCarQuestions(true)}>
+            Oui
+          </button>
+          <button type="button" name="didYouHaveACar" id="didYouHaveACar" onClick={(e) => setCurrentQuestion(3)}>
+            Non
+          </button>
+        </div>
+      </div >
 
 
       {
         showCarQuestions && (
 
-          <div>
+          <div className="question">
             <div>
               <label htmlFor="whatTypeOfFuel">Quel type de carburant utilisez-vous?</label>
-              <select name="whatTypeOfFuel" id="whatTypeOfFuel">
-                <option value="electric">Electrique</option>
-                <option value="fuel">Essence</option>
-                <option value="gazoil">Diesel</option>
-              </select>
-              {/* Utiliser le state pour stocker la valeur */}
+              <div>
+                <select name="whatTypeOfFuel" id="whatTypeOfFuel">
+                  <option value="electric">Electrique</option>
+                  <option value="fuel">Essence</option>
+                  <option value="gazoil">Diesel</option>
+                </select>
+              </div>
             </div>
 
-            <div>
+            <div className="question">
               <label htmlFor="howManyKm">
                 Combien de kilomètres parcourez-vous chaque mois?
               </label>
@@ -42,7 +45,7 @@ function QuizzCar({ setCurrentQuestion }) {
           </div>
         )
       }
-    </>
+    </div>
   );
 }
 

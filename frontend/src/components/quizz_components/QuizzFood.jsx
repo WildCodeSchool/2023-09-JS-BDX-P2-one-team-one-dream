@@ -5,25 +5,27 @@ function QuizzFood({ setCurrentQuestion }) {
   const [showFoodQuestions, setShowFoodQuestions] = useState(false);
 
   return (
-    <div>
+    <div className="question">
       <div>
         <label htmlFor="typeOfFood">Quel est votre régime alimentaire?</label>
-        <button
-          type="button"
-          name="typeOfFood"
-          id="typeOfFood"
-          onClick={(e) => setShowFoodQuestions(true)}
-        >
-          Carnivore
-        </button>
-        <button
-          type="button"
-          name="typeOfFood"
-          id="typeOfFood"
-          onClick={(e) => setCurrentQuestion(4)}
-        >
-          Végétarien
-        </button>
+        <div>
+          <button
+            type="button"
+            name="typeOfFood"
+            id="typeOfFood"
+            onClick={(e) => setShowFoodQuestions(true)}
+          >
+            Carnivore
+          </button>
+          <button
+            type="button"
+            name="typeOfFood"
+            id="typeOfFood"
+            onClick={(e) => setCurrentQuestion(4)}
+          >
+            Végétarien
+          </button>
+        </div>
       </div>
       {showFoodQuestions && (
         <div>

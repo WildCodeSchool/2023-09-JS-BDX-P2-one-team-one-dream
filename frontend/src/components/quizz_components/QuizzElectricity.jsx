@@ -1,11 +1,12 @@
 import { useState } from "react";
+import "../../styles/Quizz.scss"
 
 function QuizzElectricity() {
 
   const [quizzElectricityResponse, setQuizzElectricityResponse] = useState(0);
 
   return (
-    <div>
+    <div className="question">
       <label htmlFor="electricity-value">
         Quel est votre consommation d'électricité par mois (en kWh) ?
       </label>

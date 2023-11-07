@@ -26,30 +26,28 @@ function Quizz({ setTogglePopUp }) {
           <h1>Calcule ton empreinte carbone!</h1>
           <button className="close" type="button" onClick={() => setTogglePopUp(false)}>X</button>
         </div>
-        <div className="question_container">
-          <div className="question">
-            {currentQuestion === 0 && <QuizzElectricity />}
-          </div>
-          <div className="question">
-            {currentQuestion === 1 && <QuizzFlight setCurrentQuestion={setCurrentQuestion} />}
-          </div>
-          <div className="question">
-            {currentQuestion === 2 && <QuizzCar setCurrentQuestion={setCurrentQuestion} />}
-          </div>
-          <div className="question">
-            {currentQuestion === 3 && <QuizzFood setCurrentQuestion={setCurrentQuestion} />}
-          </div>
-          <div className="question">
-            {currentQuestion === 4 && <QuizzWater />}
-          </div>
-          {showSubmitButton ? (
-            <button type="submit">Envoyer</button>
-          ) : (
-            <button onClick={handleNextClick}>Suivant</button>
-          )}
+        <div>
+          {currentQuestion === 0 && <QuizzElectricity />}
         </div>
+        <div>
+          {currentQuestion === 1 && <QuizzFlight setCurrentQuestion={setCurrentQuestion} />}
+        </div>
+        <div>
+          {currentQuestion === 2 && <QuizzCar setCurrentQuestion={setCurrentQuestion} />}
+        </div>
+        <div>
+          {currentQuestion === 3 && <QuizzFood setCurrentQuestion={setCurrentQuestion} />}
+        </div>
+        <div>
+          {currentQuestion === 4 && <QuizzWater />}
+        </div>
+        {showSubmitButton ? (
+          <button type="submit">Envoyer</button>
+        ) : (
+          <button onClick={handleNextClick}>Suivant</button>
+        )}
       </div>
-    </div >
+    </div>
   )
 }
 
