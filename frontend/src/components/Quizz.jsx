@@ -18,26 +18,37 @@ function Quizz({ setTogglePopUp }) {
     }
   };
 
-
   return (
     <div className="modal">
       <div className="content">
         <div className="quizz_header">
           <h1>Calcule ton empreinte carbone!</h1>
-          <button className="close" type="button" onClick={() => setTogglePopUp(false)}>X</button>
+          <button
+            className="close"
+            type="button"
+            onClick={() => setTogglePopUp(false)}
+          >
+            X
+          </button>
         </div>
         <div className="question_container">
           <div className="question">
             {currentQuestion === 0 && <QuizzElectricity />}
           </div>
           <div className="question">
-            {currentQuestion === 1 && <QuizzFlight setCurrentQuestion={setCurrentQuestion} />}
+            {currentQuestion === 1 && (
+              <QuizzFlight setCurrentQuestion={setCurrentQuestion} />
+            )}
           </div>
           <div className="question">
-            {currentQuestion === 2 && <QuizzCar setCurrentQuestion={setCurrentQuestion} />}
+            {currentQuestion === 2 && (
+              <QuizzCar setCurrentQuestion={setCurrentQuestion} />
+            )}
           </div>
           <div className="question">
-            {currentQuestion === 3 && <QuizzFood setCurrentQuestion={setCurrentQuestion} />}
+            {currentQuestion === 3 && (
+              <QuizzFood setCurrentQuestion={setCurrentQuestion} />
+            )}
           </div>
           <div className="question">
             {currentQuestion === 4 && <QuizzWater />}
@@ -49,8 +60,8 @@ function Quizz({ setTogglePopUp }) {
           )}
         </div>
       </div>
-    </div >
-  )
+    </div>
+  );
 }
 
 export default Quizz;

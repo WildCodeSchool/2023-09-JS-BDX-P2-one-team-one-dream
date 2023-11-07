@@ -10,12 +10,11 @@ function Button() {
       <button
         className="buttonQuiz"
         type="button"
-        onClick={() => setTogglePopUp(true)}      >
+        onClick={() => setTogglePopUp(true)}
+      >
         Calcule ton CO2
       </button>
-      <div>
-        {togglePopUp && <Quizz setTogglePopUp={setTogglePopUp} />}
-      </div>
+      <div> {togglePopUp && <Quizz setTogglePopUp={setTogglePopUp} />} </div>
     </div>
   );
 }
