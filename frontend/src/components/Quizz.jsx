@@ -7,8 +7,6 @@ import QuizzFood from "./quizz_components/QuizzFood";
 import QuizzWater from "./quizz_components/QuizzWater";
 import { useApi } from "../context/RequestApi";
 
-// import { NavLink } from "react-router-dom";
-
 const components = [
   QuizzElectricity,
   QuizzFlight,
@@ -28,13 +26,6 @@ function Quizz({ setTogglePopUp }) {
     }
   };
 
-  const handleTest = (e) => {
-    handleSubmit(e)
-  }
-    ;
-
-
-
   return (
     <div className="modal">
       <div className="content">
@@ -50,14 +41,14 @@ function Quizz({ setTogglePopUp }) {
         </div>
         {components.map((Component, index) =>
           index === currentQuestion ? (
-            <div>
+            <div key={index}>
               <Component setCurrentQuestion={setCurrentQuestion} />
             </div>
           ) : null
         )}
         {isLastQuestion ? (<button
           type="submit"
-          onClick={handleTest}
+          onClick={handleSubmit}
         >
           Envoyer
         </button>

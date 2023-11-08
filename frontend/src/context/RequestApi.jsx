@@ -1,5 +1,6 @@
 import { createContext, useContext } from "react";
 import { useState } from "react";
+import { useNavigate } from "react-router-dom"
 
 const RequestApi = createContext();
 
@@ -7,6 +8,7 @@ const RequestApi = createContext();
 export function RequestApiProvider({ children }) {
   const [responses, setResponses] = useState({});
   const [estimate, setEstimate] = useState({});
+  const navigate = useNavigate();
 
   const handleSubmit = async (event) => {
     event.preventDefault();
@@ -17,7 +19,6 @@ export function RequestApiProvider({ children }) {
         destination_airport: responses.selectOption2,
       },
     ];
-    console.log(responses);
     const newEstimate = { elec: null, flight: null };
     if (electricityValue) {
       try {
@@ -38,7 +39,6 @@ export function RequestApiProvider({ children }) {
           })
 
         const electricityData = await electricityResponse.json();
-        console.log('Estimation pour l\'électricité : ', electricityData);
         newEstimate.elec = electricityData.data.attributes;
       } catch (error) {
         console.error('Error fetching electricity estimate:', error);
@@ -62,24 +62,26 @@ export function RequestApiProvider({ children }) {
 
           });
         const flightData = await flightResponse.json();
-        console.log(flightData);
         newEstimate.flight = flightData.data.attributes;
-        setEstimate(newEstimate);
+        // on a rajouté un spread operator à newEstimate entre moustache pour dire: 
+        // remet moi à jour setEstimate en initialisant un nouvel objet en prenant toutes les valeurs de newEstimate
+        // ca permet de s'assurer qu'il y a bien une mise à jour fait au niveau de l'affichage du composant qui utilise estimate donc : Estimate. 
+        setEstimate({ ...newEstimate });
       } catch (error) {
         console.error('Error fetching flight estimate:', error);
       }
     }
-    console.log(newEstimate);
 
-    console.log(estimate);
 
-    // if (estimate) {
-    //   window.location.href = "/result";
-    // }
+    // On avait un window.location.href mais celui là rechargait la page à chaque fois en la remettant à zero donc en resetant toutes les valeurs stockées donc sur la page result obligatoirement on avait plus les données. 
+    // on a utilisé le Hook UseNaviguate qu'on a importé en haut et qu'on a stocké dans une variable ligne 11 
+    navigate("/result")
   };
 
+
+  // dans les valeurs du provider on avait oublié de passer estimate donc on le recuperait pas sur ses enfants 
   return (
-    <RequestApi.Provider value={{ responses, setResponses, handleSubmit }}>
+    <RequestApi.Provider value={{ responses, setResponses, handleSubmit, estimate }}>
       {children}
     </RequestApi.Provider>
   )
