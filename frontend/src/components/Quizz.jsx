@@ -5,6 +5,7 @@ import QuizzFlight from "./quizz_components/QuizzFlight";
 import QuizzCar from "./quizz_components/QuizzCar";
 import QuizzFood from "./quizz_components/QuizzFood";
 import QuizzWater from "./quizz_components/QuizzWater";
+import { NavLink } from "react-router-dom";
 
 function Quizz({ setTogglePopUp }) {
   let [currentQuestion, setCurrentQuestion] = useState(0);
@@ -53,8 +54,8 @@ function Quizz({ setTogglePopUp }) {
           <div className="question">
             {currentQuestion === 4 && <QuizzWater />}
           </div>
-          {showSubmitButton ? (
-            <button type="submit">Envoyer</button>
+          {showSubmitButton ? ( <NavLink to="/result">
+            <button type="submit">Envoyer</button></NavLink>
           ) : (
             <button onClick={handleNextClick}>Suivant</button>
           )}
