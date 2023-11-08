@@ -1,8 +1,22 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import { useApi } from "../../context/RequestApi";
 
 function QuizzFood({ setCurrentQuestion }) {
-  const [quizzFoodResponse, setQuizzFoodResponse] = useState(0);
+  const { setResponses } = useApi();
+  const [foodResponse, setFoodResponse] = useState(0);
   const [showFoodQuestions, setShowFoodQuestions] = useState(false);
+
+  const handleFoodChange = (e) => {
+    setFoodResponse(e.target.value);
+  };
+
+  useEffect(() => {
+    const foodValue = { foodResponse };
+    setResponses((responses) => ({
+      ...responses, ...foodValue
+    }))
+  }, [foodResponse]
+  )
 
   return (
     <div className="question">
@@ -37,7 +51,7 @@ function QuizzFood({ setCurrentQuestion }) {
             name="howManyTimes"
             id="howManyTimes"
             min="1"
-            onChange={(e) => setQuizzFoodResponse(e.target.value)}
+            onChange={handleFoodChange}
           />
         </div>
       )}

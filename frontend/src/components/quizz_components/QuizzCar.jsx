@@ -1,8 +1,24 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import { useApi } from "../../context/RequestApi";
+
 
 function QuizzCar({ setCurrentQuestion }) {
-  const [quizzCarResponse, setQuizzCarResponse] = useState(0);
-  const [showCarQuestions, setShowCarQuestions] = useState(false);
+  const { setResponses } = useApi();
+  const [carResponse, setCarResponse] = useState(0);
+  const [showCarQuestions, setShowCarQuestions] = useState(false); // afficher les questions suivante selon oui ou non 
+
+
+  const handleCarChange = (e) => {
+    setCarResponse(e.target.value)
+  };
+
+  useEffect(() => {
+    const carValue = { carResponse };
+    setResponses((responses) => ({
+      ...responses, ...carValue
+    }))
+  }, [carResponse]
+  )
 
   return (
     <div className="question">
@@ -52,7 +68,7 @@ function QuizzCar({ setCurrentQuestion }) {
               name="howManyKm"
               id="howManyKm"
               min="0"
-              onChange={(e) => setQuizzCarResponse(e.target.value)}
+              onChange={handleCarChange}
             />
           </div>
         </div>

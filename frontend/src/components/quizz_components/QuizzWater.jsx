@@ -1,7 +1,27 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import { useApi } from "../../context/RequestApi";
+
 
 function QuizzWater() {
-  const [quizzWaterResponse, setQuizzWaterResponse] = useState(0);
+  const { responses, setResponses } = useApi();
+  const [waterResponse, setWaterResponse] = useState(0);
+
+  const handleWaterChange = (e) => {
+    setWaterResponse(e.target.value);
+  };
+
+  useEffect(() => {
+    const waterValue = { waterResponse };
+    setResponses((responses) => ({
+      ...responses, ...waterValue
+    }))
+  }, [waterResponse]
+  )
+
+  useEffect(() => {
+    console.log(responses);
+  }, [responses]
+  )
 
   return (
     <div className="question">
@@ -13,7 +33,7 @@ function QuizzWater() {
         name="numberOfLiter"
         id="numberOfLiter"
         min="0"
-        onChange={(e) => setQuizzWaterResponse(e.target.value)}
+        onChange={handleWaterChange}
       />
     </div>
   );

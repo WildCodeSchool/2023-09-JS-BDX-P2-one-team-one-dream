@@ -1,31 +1,36 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import { useApi } from "../../context/RequestApi";
+
 
 function QuizzFlight({ setCurrentQuestion }) {
-  const [quizzFlightResponse, setQuizzFlightResponse] = useState({});
+  const { setResponses } = useApi();
   const [showFlightQuestions, setShowFlightQuestions] = useState(false);
   const [showAirportSelectors, setShowAirportSelectors] = useState(false);
-<<<<<<< HEAD
-
-  return (
-    <div className="question">
-=======
   const [numberOfFlights, setNumberOfFlights] = useState(0);
+  const [selectOption1, setSelectOption1] = useState("");
+  const [selectOption2, setSelectOption2] = useState("");
+
+  useEffect(() => {
+    const newFlightResponses = { selectOption1, selectOption2 };
+    setResponses((responses) => ({
+      ...responses, ...newFlightResponses
+    }))
+  }, [selectOption1, selectOption2]
+  )
+
 
   const handleNumberOfFlightsChange = (e) => {
     const numFlights = parseInt(e.target.value, 10);
     setNumberOfFlights(numFlights);
     setShowAirportSelectors(true);
-    // console.log([...Array(numFlights)]);
   };
 
   return (
     <div>
->>>>>>> 29bb7391b6649f4a50333697df968dcb3cf21215
       <div>
         <label htmlFor="didYouTakeFlight">
           Avez-vous pris l'avion ce mois-ci ?
         </label>
-<<<<<<< HEAD
         <div>
           <button
             type="button"
@@ -44,24 +49,6 @@ function QuizzFlight({ setCurrentQuestion }) {
             Non
           </button>
         </div>
-=======
-        <button
-          type="button"
-          name="didYouTakeFlight"
-          id="didYouTakeFlight"
-          onClick={(e) => setShowFlightQuestions(true)}
-        >
-          Oui
-        </button>
-        <button
-          type="button"
-          name="didYouTakeFlight"
-          id="didYouTakeFlight"
-          onClick={(e) => setCurrentQuestion(2)}
-        >
-          Non
-        </button>
->>>>>>> 29bb7391b6649f4a50333697df968dcb3cf21215
       </div>
       {showFlightQuestions && (
         <div className="flightquestionscontent">
@@ -69,49 +56,6 @@ function QuizzFlight({ setCurrentQuestion }) {
             <label htmlFor="howManyFlight">
               Combien de vols avez-vous effectués ?
             </label>
-<<<<<<< HEAD
-          </div>
-          <input
-            type="number"
-            name="howManyFlight"
-            id="howManyFlight"
-            min="1"
-            onChange={() => setShowAirportSelectors(true)}
-          />
-        </div>
-      )}
-      {showAirportSelectors && (
-        <div>
-          <div className="question">
-            <label htmlFor="departures">
-              Renseignez votre aéroport de départ :
-            </label>
-            <select name="departures" id="departures">
-              <option value="mad">Madrid</option>
-              <option value="cdg">Paris</option>
-              <option value="lon">Londres</option>
-              <option value="bod">Bordeaux</option>
-              <option value="jfk">New-York</option>
-              <option value="yul">Montreal</option>
-              <option value="sin">Singapour</option>
-            </select>
-          </div>
-          <div className="question">
-            <label htmlFor="arrivals">
-              Renseignez votre aéroport d'arrivé :
-            </label>
-            <select name="arrivals" id="arrivals">
-              <option value="mad">Madrid</option>
-              <option value="mad">Bordeaux</option>
-              <option value="cdg">Paris</option>
-              <option value="lon">Londres</option>
-              <option value="bod">Bordeaux</option>
-              <option value="jfk">New-York</option>
-              <option value="yul">Montreal</option>
-              <option value="sin">Singapour</option>
-            </select>
-          </div>
-=======
             <input
               type="number"
               name="howManyFlight"
@@ -129,10 +73,10 @@ function QuizzFlight({ setCurrentQuestion }) {
               <label htmlFor={`departures-${index}`}>
                 Renseignez votre aéroport de départ pour le vol {index + 1} :
               </label>
-              <select name={`departures-${index}`} id={`departures-${index}`}>
+              <select name={`departures-${index}`} id={`departures-${index}`} onChange={(e) => setSelectOption1(e.target.value)}>
                 <option value="mad">Madrid</option>
                 <option value="cdg">Paris</option>
-                <option value="lon">Londres</option>
+                <option value="lcy">Londres</option>
                 <option value="bod">Bordeaux</option>
                 <option value="jfk">New-York</option>
                 <option value="yul">Montreal</option>
@@ -141,10 +85,10 @@ function QuizzFlight({ setCurrentQuestion }) {
               <label htmlFor={`arrivals-${index}`}>
                 Renseignez votre aéroport d'arrivée pour le vol {index + 1} :
               </label>
-              <select name={`arrivals-${index}`} id={`arrivals-${index}`}>
+              <select name={`arrivals-${index}`} id={`arrivals-${index}`} onChange={(e) => setSelectOption2(e.target.value)}>
                 <option value="mad">Madrid</option>
                 <option value="cdg">Paris</option>
-                <option value="lon">Londres</option>
+                <option value="lcy">Londres</option>
                 <option value="bod">Bordeaux</option>
                 <option value="jfk">New-York</option>
                 <option value="yul">Montreal</option>
@@ -152,7 +96,6 @@ function QuizzFlight({ setCurrentQuestion }) {
               </select>
             </div>
           ))}
->>>>>>> 29bb7391b6649f4a50333697df968dcb3cf21215
         </div>
       )}
     </div>

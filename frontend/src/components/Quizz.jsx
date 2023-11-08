@@ -1,22 +1,39 @@
-import { useState } from "react";
+import React, { useState } from "react";
 import "../styles/Quizz.scss";
 import QuizzElectricity from "./quizz_components/QuizzElectricity";
 import QuizzFlight from "./quizz_components/QuizzFlight";
 import QuizzCar from "./quizz_components/QuizzCar";
 import QuizzFood from "./quizz_components/QuizzFood";
 import QuizzWater from "./quizz_components/QuizzWater";
+import { useApi } from "../context/RequestApi";
+
+// import { NavLink } from "react-router-dom";
+
+const components = [
+  QuizzElectricity,
+  QuizzFlight,
+  QuizzCar,
+  QuizzFood,
+  QuizzWater,
+];
 
 function Quizz({ setTogglePopUp }) {
-  let [currentQuestion, setCurrentQuestion] = useState(0);
-  const [showSubmitButton, setShowSubmitButton] = useState(false);
+  const { handleSubmit } = useApi()
+  const [currentQuestion, setCurrentQuestion] = useState(0);
+  const isLastQuestion = currentQuestion === components.length - 1;
 
   const handleNextClick = () => {
-    if (currentQuestion < 4) {
-      setCurrentQuestion(++currentQuestion);
-    } else {
-      setShowSubmitButton(true);
+    if (!isLastQuestion) {
+      setCurrentQuestion(currentQuestion + 1);
     }
   };
+
+  const handleTest = (e) => {
+    handleSubmit(e)
+  }
+    ;
+
+
 
   return (
     <div className="modal">
@@ -31,29 +48,25 @@ function Quizz({ setTogglePopUp }) {
             X
           </button>
         </div>
-        <div>{currentQuestion === 0 && <QuizzElectricity />}</div>
-        <div>
-          {currentQuestion === 1 && (
-            <QuizzFlight setCurrentQuestion={setCurrentQuestion} />
-          )}
-        </div>
-        <div>
-          {currentQuestion === 2 && (
-            <QuizzCar setCurrentQuestion={setCurrentQuestion} />
-          )}
-        </div>
-        <div>
-          {currentQuestion === 3 && (
-            <QuizzFood setCurrentQuestion={setCurrentQuestion} />
-          )}
-        </div>
-        <div>{currentQuestion === 4 && <QuizzWater />}</div>
-        {showSubmitButton ? (
-          <button type="submit">Envoyer</button>
-        ) : (
-          <button type="button" onClick={handleNextClick}>
-            Suivant
-          </button>
+        {components.map((Component, index) =>
+          index === currentQuestion ? (
+            <div>
+              <Component setCurrentQuestion={setCurrentQuestion} />
+            </div>
+          ) : null
+        )}
+        {isLastQuestion ? (<button
+          type="submit"
+          onClick={handleTest}
+        >
+          Envoyer
+        </button>
+        ) : (<button
+          type="button"
+          onClick={handleNextClick}
+        >
+          Suivant
+        </button>
         )}
       </div>
     </div>
