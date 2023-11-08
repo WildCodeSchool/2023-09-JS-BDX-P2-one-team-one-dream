@@ -79,7 +79,11 @@ function Result({ estimate }) {
 
   return estimate ? (
     <div>
-      <p>Résultat estimé : {estimate.carbon_kg} kg de carbone</p>
+      <p>
+        Résultat estimé :
+        {estimate.elec.carbon_kg * 3.66 + estimate.flight.carbon_kg * 3.66} kg
+        de CO2
+      </p>
     </div>
   ) : (
     <div>
@@ -98,12 +102,15 @@ function Quiz() {
     const electricityValue = responses[2];
     const hasTakenFlight = responses[3] === "Oui";
     const flightDetails = hasTakenFlight
-      ? {
-          departure_airport: [responses[4], responses[5]],
-          destination_airport: [responses[5], responses[4]],
-        }
+      ? [
+          {
+            departure_airport: responses[5],
+            destination_airport: responses[6],
+          },
+        ]
       : null;
-
+    console.log(responses);
+    const newEstimate = { elec: null, flight: null };
     if (electricityValue) {
       const electricityResponse = await fetch(
         "https://www.carboninterface.com/api/v1/estimates",
@@ -117,17 +124,16 @@ function Quiz() {
             type: "electricity",
             electricity_unit: "kwh",
             electricity_value: electricityValue,
-            country: "us",
-            state: "fl",
+            country: "fr",
           }),
         }
       );
 
       const electricityData = await electricityResponse.json();
       console.log("Estimation pour l'électricité : ", electricityData);
-      setEstimate(electricityData.data.attributes);
+      newEstimate.elec = electricityData.data.attributes;
     }
-
+    console.log(hasTakenFlight, flightDetails);
     if (hasTakenFlight && flightDetails) {
       const flightResponse = await fetch(
         "https://www.carboninterface.com/api/v1/estimates",
@@ -140,19 +146,16 @@ function Quiz() {
           body: JSON.stringify({
             type: "flight",
             passengers: 1,
-            legs: [flightDetails],
+            legs: flightDetails,
           }),
         }
       );
 
       const flightData = await flightResponse.json();
-      setEstimate((prevEstimate) => {
-        return {
-          ...prevEstimate,
-          flight: flightData,
-        };
-      });
+      console.log(flightData);
+      newEstimate.flight = flightData.data.attributes;
     }
+    setEstimate(newEstimate);
   };
   const handleNextQuestion = () => {
     if (currentQuestion < questionList.length - 1) {
