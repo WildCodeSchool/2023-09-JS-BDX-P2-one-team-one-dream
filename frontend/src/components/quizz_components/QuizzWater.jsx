@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { useApi } from "../../context/RequestApi";
 
 function QuizzWater() {
-  const { responses, setResponses } = useApi();
+  const { setResponses } = useApi();
   const [waterResponse, setWaterResponse] = useState(0);
 
   const handleWaterChange = (e) => {
@@ -15,7 +15,7 @@ function QuizzWater() {
       ...prevResponses,
       ...waterValue,
     }));
-  }, [waterResponse, setResponses, responses]);
+  }, [waterResponse]);
 
   return (
     <div className="question">

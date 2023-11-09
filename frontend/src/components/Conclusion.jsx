@@ -85,10 +85,13 @@ function Conclusion() {
   let selectedOption = null;
 
   if (result >= 60) {
+    // eslint-disable-next-line prefer-destructuring
     selectedOption = allResults[0];
   } else if (result >= 30) {
+    // eslint-disable-next-line prefer-destructuring
     selectedOption = allResults[1];
   } else {
+    // eslint-disable-next-line prefer-destructuring
     selectedOption = allResults[2];
   }
 
