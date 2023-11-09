@@ -14,7 +14,7 @@ function Button() {
       >
         Calcule ton CO2
       </button>
-      <div> {togglePopUp && <Quizz setTogglePopUp={setTogglePopUp} />} </div>
+      <div>{togglePopUp && <Quizz setTogglePopUp={setTogglePopUp} />}</div>
     </div>
   );
 }
