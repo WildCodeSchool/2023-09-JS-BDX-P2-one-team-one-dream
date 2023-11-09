@@ -8,13 +8,13 @@ const allResults = [
     image: "./src/assets/jauge5.png",
     conclusion:
       "Vous êtes un warrior GreenPoint ! Bravo, vous êtes en dessous de la moyenne nationale!!! Vous avez totalement pris conscience du changement climatique et votre comportement s’en ressent.Vous faites des efforts au quotidien, et votre impact environnemental est très responsable! Toutes nos félicitations!!",
-    axes: `Avez -vous pensé à 
-    Attendre que le lave- vaisselle et le lave - linge soient remplis pour lacer la machine.
-    Arrêter de multiplier les sources d’éclairage, même si « c’est joli les ambiances tamisées »
-    Mieux placer les appareils froids chez soi pour éviter qu’ils se retrouvent à coté d’une source de chaleur, ce qui les incite à surconsommer.
-    Revoir votre isolation surtout si vous avez un logement ancien.Oui, cela a un coût mais réconfortez - vous en vous rappelant que c’est un investissement sur le long terme.
-    Réduire votre consommation de chauffage, lancez - vous un défi : réduisez votre chauffage de 1° !Votre porte - monnaie vous remerciera, cela réduira votre facture de 7 % !!
-    Prenez des douches plus courtes
+    axes: `Avez -vous pensé à : 
+    -Attendre que le lave- vaisselle et le lave - linge soient remplis pour lacer la machine. 
+    -Arrêter de multiplier les sources d’éclairage, même si « c’est joli les ambiances tamisées »
+    -Mieux placer les appareils froids chez soi pour éviter qu’ils se retrouvent à coté d’une source de chaleur, ce qui les incite à surconsommer.
+    -Revoir votre isolation surtout si vous avez un logement ancien.Oui, cela a un coût mais réconfortez vous en vous rappelant que c’est un investissement sur le long terme.
+    -Réduire votre consommation de chauffage, lancez - vous un défi : réduisez votre chauffage de 1° !Votre porte - monnaie vous remerciera, cela réduira votre facture de 7 % !!
+    -Prenez des douches plus courtes
     Favoriser des machines à 30°
     Installation d’un brise - jet réduisant le volume d’eau
     Poser un récupérateur d’eau de pluie pour arroser les plantes du jardin
@@ -92,6 +92,12 @@ function Conclusion() {
     selectedOption = allResults[2];
   }
 
+  const formatParagraphs = (text) => {
+    return text.split('\n').map((paragraph, index) => (
+      <p key={index}>{paragraph}</p>
+    ));
+  };
+
   return (
     <div className="conclu-container">
       <div>
@@ -101,8 +107,8 @@ function Conclusion() {
           className="img_level"
         />
         <h3>{selectedOption.title}</h3>
-        <p className="conclusion">{selectedOption.conclusion}</p>
-        <p>{selectedOption.axes}</p>
+        <p className="conclusion">{formatParagraphs(selectedOption.conclusion)}</p>
+        <div className="axes">{formatParagraphs(selectedOption.axes)}</div>
       </div>
     </div>
   );
