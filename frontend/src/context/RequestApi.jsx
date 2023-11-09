@@ -80,17 +80,14 @@ export function RequestApiProvider({ children }) {
   // dans les valeurs du provider on avait oublié de passer estimate donc on le recuperait pas sur ses enfants
   return (
     <RequestApi.Provider
-      value={React.useMemo(
-        () => ({ responses, setResponses, handleSubmit, estimate }),
-        [responses, setResponses, handleSubmit, estimate]
-      )}
+      value={{ responses, setResponses, handleSubmit, estimate }}
     >
       {children}
     </RequestApi.Provider>
   );
 }
-
 RequestApiProvider.propTypes = {
   children: PropTypes.node.isRequired,
 };
+
 export const useApi = () => useContext(RequestApi);

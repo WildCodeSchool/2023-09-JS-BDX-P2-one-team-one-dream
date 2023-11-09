@@ -64,4 +64,5 @@ function Quizz({ setTogglePopUp }) {
 Quizz.propTypes = {
   setTogglePopUp: PropTypes.func.isRequired,
 };
+
 export default Quizz;
