@@ -29,7 +29,7 @@ const allResults = [
 ];
 
 function Conclusion() {
-  const result = 80;
+  const result = 89;
   let selectedOption = null;
 
   if (result >= 60) {
