@@ -75,7 +75,6 @@ export function RequestApiProvider({ children }) {
     // On avait un window.location.href mais celui là rechargait la page à chaque fois en la remettant à zero donc en resetant toutes les valeurs stockées donc sur la page result obligatoirement on avait plus les données.
     // on a utilisé le Hook UseNaviguate qu'on a importé en haut et qu'on a stocké dans une variable ligne 11
     navigate("/result");
-    console.log(responses);
   };
 
   // dans les valeurs du provider on avait oublié de passer estimate donc on le recuperait pas sur ses enfants
