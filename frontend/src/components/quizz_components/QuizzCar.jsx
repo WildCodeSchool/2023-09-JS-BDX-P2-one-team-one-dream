@@ -1,24 +1,23 @@
 import { useEffect, useState } from "react";
+import PropTypes from "prop-types";
 import { useApi } from "../../context/RequestApi";
-
 
 function QuizzCar({ setCurrentQuestion }) {
   const { setResponses } = useApi();
   const [carResponse, setCarResponse] = useState(0);
-  const [showCarQuestions, setShowCarQuestions] = useState(false); // afficher les questions suivante selon oui ou non 
-
+  const [showCarQuestions, setShowCarQuestions] = useState(false); // afficher les questions suivante selon oui ou non
 
   const handleCarChange = (e) => {
-    setCarResponse(e.target.value)
+    setCarResponse(e.target.value);
   };
 
   useEffect(() => {
     const carValue = { carResponse };
     setResponses((responses) => ({
-      ...responses, ...carValue
-    }))
-  }, [carResponse]
-  )
+      ...responses,
+      ...carValue,
+    }));
+  }, [carResponse]);
 
   return (
     <div className="question">
@@ -76,5 +75,9 @@ function QuizzCar({ setCurrentQuestion }) {
     </div>
   );
 }
+
+QuizzCar.propTypes = {
+  setCurrentQuestion: PropTypes.func.isRequired,
+};
 
 export default QuizzCar;

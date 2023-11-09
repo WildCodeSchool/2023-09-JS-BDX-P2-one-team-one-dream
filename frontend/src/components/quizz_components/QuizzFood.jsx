@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import PropTypes from "prop-types";
 import { useApi } from "../../context/RequestApi";
 
 function QuizzFood({ setCurrentQuestion }) {
@@ -13,10 +14,10 @@ function QuizzFood({ setCurrentQuestion }) {
   useEffect(() => {
     const foodValue = { foodResponse };
     setResponses((responses) => ({
-      ...responses, ...foodValue
-    }))
-  }, [foodResponse]
-  )
+      ...responses,
+      ...foodValue,
+    }));
+  }, [foodResponse]);
 
   return (
     <div className="question">
@@ -58,5 +59,9 @@ function QuizzFood({ setCurrentQuestion }) {
     </div>
   );
 }
+
+QuizzFood.propTypes = {
+  setCurrentQuestion: PropTypes.func.isRequired,
+};
 
 export default QuizzFood;

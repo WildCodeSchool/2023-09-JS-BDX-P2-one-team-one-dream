@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
+import PropTypes from "prop-types";
 import { useApi } from "../../context/RequestApi";
-
 
 function QuizzFlight({ setCurrentQuestion }) {
   const { setResponses } = useApi();
@@ -13,11 +13,10 @@ function QuizzFlight({ setCurrentQuestion }) {
   useEffect(() => {
     const newFlightResponses = { selectOption1, selectOption2 };
     setResponses((responses) => ({
-      ...responses, ...newFlightResponses
-    }))
-  }, [selectOption1, selectOption2]
-  )
-
+      ...responses,
+      ...newFlightResponses,
+    }));
+  }, [selectOption1, selectOption2]);
 
   const handleNumberOfFlightsChange = (e) => {
     const numFlights = parseInt(e.target.value, 10);
@@ -69,11 +68,15 @@ function QuizzFlight({ setCurrentQuestion }) {
       {showAirportSelectors && numberOfFlights > 0 && (
         <div>
           {[...Array(numberOfFlights)].map((_, index) => (
-            <div key={index}>
+            <div>
               <label htmlFor={`departures-${index}`}>
                 Renseignez votre aéroport de départ pour le vol {index + 1} :
               </label>
-              <select name={`departures-${index}`} id={`departures-${index}`} onChange={(e) => setSelectOption1(e.target.value)}>
+              <select
+                name={`departures-${index}`}
+                id={`departures-${index}`}
+                onChange={(e) => setSelectOption1(e.target.value)}
+              >
                 <option value="mad">Madrid</option>
                 <option value="cdg">Paris</option>
                 <option value="lcy">Londres</option>
@@ -85,7 +88,11 @@ function QuizzFlight({ setCurrentQuestion }) {
               <label htmlFor={`arrivals-${index}`}>
                 Renseignez votre aéroport d'arrivée pour le vol {index + 1} :
               </label>
-              <select name={`arrivals-${index}`} id={`arrivals-${index}`} onChange={(e) => setSelectOption2(e.target.value)}>
+              <select
+                name={`arrivals-${index}`}
+                id={`arrivals-${index}`}
+                onChange={(e) => setSelectOption2(e.target.value)}
+              >
                 <option value="mad">Madrid</option>
                 <option value="cdg">Paris</option>
                 <option value="lcy">Londres</option>
@@ -101,5 +108,9 @@ function QuizzFlight({ setCurrentQuestion }) {
     </div>
   );
 }
+
+QuizzFlight.propTypes = {
+  setCurrentQuestion: PropTypes.func.isRequired,
+};
 
 export default QuizzFlight;

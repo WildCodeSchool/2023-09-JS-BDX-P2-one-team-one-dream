@@ -13,10 +13,10 @@ function QuizzElectricity() {
   useEffect(() => {
     const electricityValue = { electricityResponse };
     setResponses((responses) => ({
-      ...responses, ...electricityValue
-    }))
-  }, [electricityResponse]
-  )
+      ...responses,
+      ...electricityValue,
+    }));
+  }, [electricityResponse]);
 
   return (
     <div className="question">
