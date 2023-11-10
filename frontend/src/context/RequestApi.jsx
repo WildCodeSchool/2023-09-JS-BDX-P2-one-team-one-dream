@@ -75,8 +75,8 @@ export function RequestApiProvider({ children }) {
     setResponses(responses);
   };
   const contextValues = useMemo(
-    () => ({ responses, setResponses, handleSubmit, estimate, addFlight }),
-    [responses, setResponses, handleSubmit, estimate, addFlight]
+    () => ({ setResponses, handleSubmit, estimate, addFlight, responses }),
+    [setResponses, handleSubmit, estimate, addFlight, responses]
   );
   return (
     <RequestApi.Provider value={contextValues}>{children}</RequestApi.Provider>
