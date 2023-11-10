@@ -1,20 +1,16 @@
-/* eslint-disable prettier/prettier */
 import PropTypes from "prop-types";
 import { useApi } from "../context/RequestApi";
-
 
 function Estimate({ allResults }) {
   const { responses, estimate } = useApi();
   let selectedOption = {};
 
-  const FinalResult = parseInt(
-    estimate.elec.carbon_kg * 3.66 +
-    estimate.flight.carbon_kg * 3.66 +
-    responses.carResponse * 0.22 +
-    responses.waterResponse * 0.00013 +
-    responses.foodResponse * 4 * 12.5,
-    10
-  );
+  const FinalResult =
+    +estimate.elec.carbon_kg * 3.66 +
+    +estimate.flight.carbon_kg * 3.66 +
+    +responses.carResponse * 0.22 +
+    +responses.waterResponse * 0.00013 +
+    +responses.foodResponse * 4 * 12.5;
 
   if (FinalResult <= 550) {
     // eslint-disable-next-line prefer-destructuring
@@ -44,14 +40,12 @@ function Estimate({ allResults }) {
           ))}
         </ul>
       </div>
-    </div >
-  )
-    ;
+    </div>
+  );
 }
 
 Estimate.propTypes = {
   allResults: PropTypes.func.isRequired,
 };
-
 
 export default Estimate;
