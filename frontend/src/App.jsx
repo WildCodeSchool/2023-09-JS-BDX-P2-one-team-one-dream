@@ -2,6 +2,7 @@ import { Outlet } from "react-router-dom";
 import "./styles/App.scss";
 import Footer from "./components/Footer";
 import Header from "./components/Header";
+import { RequestApiProvider } from "./context/RequestApi";
 
 function App() {
   return (
@@ -9,7 +10,9 @@ function App() {
       <div className="content-wrap">
         <Header />
         <main>
-          <Outlet />
+          <RequestApiProvider>
+            <Outlet />
+          </RequestApiProvider>
         </main>
       </div>
       <Footer />

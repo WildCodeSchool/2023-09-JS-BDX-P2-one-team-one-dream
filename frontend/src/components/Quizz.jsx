@@ -1,56 +1,68 @@
-import { useState } from "react";
+import React, { useState } from "react";
+import PropTypes from "prop-types";
 import "../styles/Quizz.scss";
 import QuizzElectricity from "./quizz_components/QuizzElectricity";
 import QuizzFlight from "./quizz_components/QuizzFlight";
 import QuizzCar from "./quizz_components/QuizzCar";
 import QuizzFood from "./quizz_components/QuizzFood";
 import QuizzWater from "./quizz_components/QuizzWater";
+import { useApi } from "../context/RequestApi";
+
+const components = [
+  QuizzElectricity,
+  QuizzFlight,
+  QuizzCar,
+  QuizzFood,
+  QuizzWater,
+];
 
 function Quizz({ setTogglePopUp }) {
-  let [currentQuestion, setCurrentQuestion] = useState(0);
-  const [showSubmitButton, setShowSubmitButton] = useState(false);
+  const { handleSubmit } = useApi();
+  const [currentQuestion, setCurrentQuestion] = useState(0);
+  const isLastQuestion = currentQuestion === components.length - 1;
 
   const handleNextClick = () => {
-    if (currentQuestion < 4) {
-      setCurrentQuestion(++currentQuestion);
-    } else {
-      setShowSubmitButton(true);
+    if (!isLastQuestion) {
+      setCurrentQuestion(currentQuestion + 1);
     }
   };
-
 
   return (
     <div className="modal">
       <div className="content">
         <div className="quizz_header">
           <h1>Calcule ton empreinte carbone!</h1>
-          <button className="close" type="button" onClick={() => setTogglePopUp(false)}>X</button>
+          <button
+            className="close"
+            type="button"
+            onClick={() => setTogglePopUp(false)}
+          >
+            X
+          </button>
         </div>
-        <div className="question_container">
-          <div className="question">
-            {currentQuestion === 0 && <QuizzElectricity />}
-          </div>
-          <div className="question">
-            {currentQuestion === 1 && <QuizzFlight setCurrentQuestion={setCurrentQuestion} />}
-          </div>
-          <div className="question">
-            {currentQuestion === 2 && <QuizzCar setCurrentQuestion={setCurrentQuestion} />}
-          </div>
-          <div className="question">
-            {currentQuestion === 3 && <QuizzFood setCurrentQuestion={setCurrentQuestion} />}
-          </div>
-          <div className="question">
-            {currentQuestion === 4 && <QuizzWater />}
-          </div>
-          {showSubmitButton ? (
-            <button type="submit">Envoyer</button>
-          ) : (
-            <button onClick={handleNextClick}>Suivant</button>
-          )}
-        </div>
+        {components.map((Component, index) =>
+          index === currentQuestion ? (
+            <div>
+              <Component setCurrentQuestion={setCurrentQuestion} />
+            </div>
+          ) : null
+        )}
+        {isLastQuestion ? (
+          <button type="submit" onClick={handleSubmit}>
+            Envoyer
+          </button>
+        ) : (
+          <button type="button" onClick={handleNextClick}>
+            Suivant
+          </button>
+        )}
       </div>
-    </div >
-  )
+    </div>
+  );
 }
+
+Quizz.propTypes = {
+  setTogglePopUp: PropTypes.func.isRequired,
+};
 
 export default Quizz;

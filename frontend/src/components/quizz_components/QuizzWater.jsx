@@ -1,16 +1,36 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import { useApi } from "../../context/RequestApi";
 
 function QuizzWater() {
-  const [quizzWaterResponse, setQuizzWaterResponse] = useState(0);
+  const { setResponses } = useApi();
+  const [waterResponse, setWaterResponse] = useState(0);
+
+  const handleWaterChange = (e) => {
+    setWaterResponse(e.target.value);
+  };
+
+  useEffect(() => {
+    const waterValue = { waterResponse };
+    setResponses((prevResponses) => ({
+      ...prevResponses,
+      ...waterValue,
+    }));
+  }, [waterResponse]);
 
   return (
-    <div>
+    <div className="question">
       <label htmlFor="numberOfLiter">
         Quel est votre consommation d'eau par mois ? (en litre)
       </label>
-      <input type="number" name="numberOfLiter" id="numberOfLiter" min="0" onChange={(e) => setQuizzWaterResponse(e.target.value)} />
-    </div >
-  )
+      <input
+        type="number"
+        name="numberOfLiter"
+        id="numberOfLiter"
+        min="0"
+        onChange={handleWaterChange}
+      />
+    </div>
+  );
 }
 
 export default QuizzWater;

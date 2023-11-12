@@ -1,0 +1,83 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@500&display=swap");
+* {
+  box-sizing: border-box;
+}
+
+.title-actu {
+  text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  margin: 20px 0px 25px;
+  font-size: 20px;
+}
+
+.text-actu {
+  font-size: 14px;
+}
+
+.title-actu,
+.text-actu {
+  font-family: "Inter", sans-serif;
+  color: white;
+}
+
+.container {
+  border-radius: 10px;
+  background-color: rgba(123, 199, 96, 0.62);
+  text-align: center;
+  margin: 0 auto;
+  width: 85%;
+  padding: 1px 0 10px 0;
+  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+}
+.container .actu-container {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  padding: 0px 20px 10px;
+}
+.container .event {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+}
+.container .event:nth-child(2) {
+  flex-direction: row-reverse;
+}
+.container .event .img {
+  width: 120px;
+  height: 80px;
+  border: 2px solid white;
+  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+
+@media screen and (min-width: 768px) {
+  .container {
+    width: 80%;
+  }
+  .container .actu-container {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-direction: row;
+  }
+  .container .actu-container .event {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 200px;
+  }
+  .container .actu-container .event .img {
+    width: 200px;
+    height: 120px;
+  }
+  .container .actu-container .event .title-actu {
+    font-size: 30px;
+  }
+  .container .actu-container .event .text-actu {
+    font-size: 15px;
+  }
+}/*# sourceMappingURL=Actuality.css.map */
