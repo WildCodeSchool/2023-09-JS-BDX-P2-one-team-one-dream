@@ -15,7 +15,7 @@ function AboutUs() {
       </p>
       <img
         className="Image_AboutUs"
-        src="https://placehold.co/200x100.png"
+        src="../src/assets/nous.jpeg"
         alt="Equipe des créateurs du site"
       />
     </div>
