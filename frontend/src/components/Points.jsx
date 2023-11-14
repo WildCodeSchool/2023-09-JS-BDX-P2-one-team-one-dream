@@ -9,6 +9,7 @@ function Points() {
           <a
             href="https://www.infotbm.com/fr/tarificationsolidaire"
             target="_blank"
+            rel="noreferrer"
           >
             <div className="container_img">
               <img
@@ -27,6 +28,7 @@ function Points() {
           <a
             href="https://www.visiter-bordeaux.com/fr/bordeaux-citypass.html"
             target="_blank"
+            rel="noreferrer"
           >
             <img
               className="image_Cards"
@@ -40,7 +42,7 @@ function Points() {
           </div>
         </div>
         <div className="Cards">
-          <a href="https://www.ouigo.com/" target="_blank">
+          <a href="https://www.ouigo.com/" target="_blank" rel="noreferrer">
             <div className="container_img">
               <img
                 className="image_Cards"
@@ -55,7 +57,11 @@ function Points() {
           </div>
         </div>
         <div className="Cards">
-          <a href="https://www.ouigo.com/bons-plans" target="_blank">
+          <a
+            href="https://www.ouigo.com/bons-plans"
+            target="_blank"
+            rel="noreferrer"
+          >
             <img
               className="image_Cards"
               src="./src/assets/ouigo.png"

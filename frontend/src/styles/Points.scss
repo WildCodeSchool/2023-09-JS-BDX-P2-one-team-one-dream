@@ -65,8 +65,8 @@
 @media screen and (min-width: 820px) {
   .Points_Cards {
     display: grid;
-    grid-template-columns: repeat(2, 1fr); /* Deux colonnes égales */
-    grid-template-rows: repeat(2, 1fr); /* Deux lignes égales */
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(2, 1fr);
     gap: 20px;
   }
 }
