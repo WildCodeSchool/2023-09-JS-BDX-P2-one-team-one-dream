@@ -11,19 +11,24 @@
 
   .content {
     position: relative;
-    background: #fff3e0;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    background: linear-gradient(to top, #fff3e0 70%, rgb(123, 199, 96) 30%);
     border-radius: 8px;
-    width: 600px;
+    width: 400px;
     min-height: 500px;
     padding: 20px 10px;
     text-align: center;
     box-sizing: border-box;
 
-    button {
+    .quizz_button {
       margin-top: 20px;
+      width: 100px;
     }
 
-    .question {
+    .question_container .question {
       display: flex;
       flex-direction: column;
       gap: 15px;
@@ -33,17 +38,40 @@
 
     .quizz_header {
       margin: 0;
-      padding: 10px;
+      padding: 40px 10px 10px 10px;
       display: flex;
       flex-direction: row;
       justify-content: center;
       right: 20px;
+      color: rgb(56, 53, 53);
 
       .close {
-        right: -60px;
-        top: -20px;
-        color: red;
-        position: relative;
+        right: -50px;
+        background-color: rgb(123, 199, 96);
+        border: none;
+      }
+      .close:hover {
+        stroke: red;
+      }
+    }
+
+    label {
+      font-size: 25px;
+      color: rgb(56, 53, 53);
+      font-family: "Quattrocento Sans", sans-serif;
+      margin-bottom: 70px;
+    }
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .modal {
+    .content {
+      width: 800px;
+      .quizz_header {
+        .close {
+          right: -140px;
+        }
       }
     }
   }

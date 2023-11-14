@@ -3,6 +3,7 @@ import { useApi } from "../context/RequestApi";
 
 function Estimate({ allResults }) {
   const { responses, estimate } = useApi();
+  const [option1, option2, option3] = allResults;
   let selectedOption = {};
 
   const FinalResult =
@@ -13,14 +14,11 @@ function Estimate({ allResults }) {
     +responses.foodResponse * 4 * 12.5;
 
   if (FinalResult <= 550) {
-    // eslint-disable-next-line prefer-destructuring
-    selectedOption = allResults[0];
+    selectedOption = option1;
   } else if (FinalResult <= 751) {
-    // eslint-disable-next-line prefer-destructuring
-    selectedOption = allResults[1];
+    selectedOption = option2;
   } else {
-    // eslint-disable-next-line prefer-destructuring
-    selectedOption = allResults[2];
+    selectedOption = option3;
   }
 
   return (
