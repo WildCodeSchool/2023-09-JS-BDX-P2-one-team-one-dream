@@ -1,6 +1,6 @@
 import Estimate from "../components/Estimate";
 import Points from "../components/Points";
-import "../styles/Result.scss";
+import "../styles/Estimate.scss";
 
 const allResults = [
   {
@@ -9,26 +9,19 @@ const allResults = [
     title: "Bravo, vous êtes un Green Warrior!!",
     image: "./src/assets/jauge5.png",
     conclusion:
-      "Vous êtes un warrior GreenPoint ! Bravo, vous êtes en dessous de la moyenne nationale!!! Vous avez totalement pris conscience du changement climatique et votre comportement s’en ressent.Vous faites des efforts au quotidien, et votre impact environnemental est très responsable! Toutes nos félicitations!!",
+      "Vous êtes un warrior GreenPoint ! Bravo, vous êtes en dessous de la moyenne nationale!!! Vous avez totalement pris conscience du changement climatique et votre comportement s’en ressent. Vous faites des efforts au quotidien, et votre impact environnemental est très responsable! Toutes nos félicitations!!",
     axes: [
-      "Attendre que le lave- vaisselle et le lave - linge soient remplis pour lacer la machine.",
+      "Attendre que le lave-vaisselle et le lave-linge soient remplis pour lancer la machine.",
       "Arrêter de multiplier les sources d’éclairage, même si « c’est joli les ambiances tamisées »",
-      "Mieux placer les appareils froids chez soi pour éviter qu’ils se retrouvent à coté d’une source de chaleur, ce qui les incite à surconsommer.",
-      "Revoir votre isolation surtout si vous avez un logement ancien.Oui, cela a un coût mais réconfortez - vous en vous rappelant que c’est un investissement sur le long terme.",
-      "Réduire votre consommation de chauffage, lancez - vous un défi : réduisez votre chauffage de 1° !Votre porte - monnaie vous remerciera, cela réduira votre facture de 7 % !!",
-      "Prenez des douches plus courtes",
-      "Favoriser des machines à 30°",
-      "Installation d’un brise - jet réduisant le volume d’eau",
+      "Réduire votre consommation de chauffage, lancez-vous un défi : réduisez votre chauffage de 1°! Votre porte-monnaie vous remerciera, cela réduira votre facture de 7% !",
+      "Installation d’un brise-jet réduisant le volume d’eau",
       "Poser un récupérateur d’eau de pluie pour arroser les plantes du jardin",
-      "Baisser la température de votre chauffe - eau, souvent surestimée, 55°C suffisent",
-      "Privilégiez l’achat d’électroménager avec une étiquette énergie attestant une consommation raisonnable.La catégorie A, de couleur verte, est la meilleure!",
-      "Installer des panneaux solaires",
-      "Préférer un bon vieux ventilo à la clim l’été",
+      "Baisser la température de votre chauffe-eau, souvent surestimée, 55°C suffisent",
+      "Privilégiez l’achat d’électroménager avec une étiquette énergie attestant une consommation raisonnable. La catégorie A, de couleur verte, est la meilleure!",
       "Acheter responsable et localement",
-      "Manger moins de viande",
       "Planter des arbres et des plantes",
       "Privilégier les produits biologiques",
-      "Eviter les emballages plastique et les produits jetables, achetez par exemple dans des épiceries qui vous permettent des ramener vos contenants.Ex : « La Recharge » à Bordeaux",
+      "Eviter les emballages plastique et les produits jetables, achetez par exemple dans des épiceries qui vous permettent des ramener vos contenants. Ex: «La Recharge» à Bordeaux",
     ],
   },
   {
@@ -39,28 +32,18 @@ const allResults = [
     conclusion: `Vous êtes un bon GreenPoint !
       Bravo, vous êtes dans la moyenne des français ! Vous avez quelques bons réflexes, et commencez à réaliser que nos comportements, même les plus petits, ont un impact réel sur notre environnement. Félicitations, vous êtes sur le bon chemin !`,
     axes: [
-      "Eviter les emballages plastique et les produits jetables, achetez par exemple dans des épiceries qui vous permettent des ramener vos contenants. Ex : « La Recharge » à Bordeaux",
-      "Planter des arbres et des plantes",
+      "Eviter les emballages plastique et les produits jetables, achetez par exemple dans des épiceries qui vous permettent des ramener vos contenants. Ex: «La Recharge» à Bordeaux",
       "Privilégier les produits biologiques",
       "Composter ses déchets et recycler",
       "Limiter l’utilisation de la voiture",
-      "Acheter responsable et localement",
       "Manger moins de viande",
-      "Prenez des douches plus courtes",
-      "Favoriser les bains aux douches",
+      "Favoriser les douches plus courtes aux bains",
       "Favoriser des machines à 30°",
-      "Installation d’un brise-jet réduisant le volume d’eau",
-      "Poser un récupérateur d’eau de pluie pour arroser les plantes du jardin",
       "Baisser la température de votre chauffe-eau, souvent surestimée, 55°C suffisent",
       "Privilégiez l’achat d’électroménager avec une étiquette énergie attestant une consommation raisonnable. La catégorie A, de couleur verte, est la meilleure !",
-      "Installer des panneaux solaires",
-      " Préférer un bon vieux ventilo à la clim l’été",
-      "Fermer les volets la nuit ou installer des rideaux isolants.",
-      "Réduire votre consommation de chauffage, lancez-vous un défi : réduisez votre chauffage de 1° ! Votre porte-monnaie vous remerciera, cela réduira votre facture de 7% !!",
+      "Préférer un bon vieux ventilo à la clim l’été",
       "Débrancher chaque appareil électronique lorsqu’il n’est pas utilisé. N’hésitez pas à vous entourer de multiprises à interrupteur, en un clic, le tour est joué.",
-      "Revoir votre isolation surtout si vous avez un logement ancien. Oui, cela a un coût mais réconfortez-vous en vous rappelant que c’est un investissement sur le long terme.",
-      "Attendre que le lave-vaisselle et le lave-linge soient remplis pour lacer la machine.",
-      "Arrêter de multiplier les sources d’éclairage, même si « c’est joli les ambiances tamisées »",
+      "Arrêter de multiplier les sources d’éclairage, même si «c’est joli les ambiances tamisées»",
     ],
   },
   {
@@ -71,15 +54,13 @@ const allResults = [
     conclusion: `Vous allez enfin pouvoir faire des progrès !
     Franchement ce n’est pas très Green ! Bon, vous n’êtes pas sur le podium des champions de l’empreinte carbone mais vous avez la chance d’avoir une marge de progression intéressante. En effet, vous êtes au dessus de la moyenne nationale mais pleins de petits gestes peuvent vous permettre d’améliorer votre impact environnemental.`,
     axes: [
-      "Arrêter de multiplier les sources d’éclairage, même si « c’est joli les ambiances tamisées »",
+      "Arrêter de multiplier les sources d’éclairage, même si «c’est joli les ambiances tamisées»",
       "Débrancher chaque appareil électronique lorsqu’il n’est pas utilisé. N’hésitez pas à vous entourer de multiprises à interrupteur, en un clic, le tour est joué.",
       "Pour les petits budgets, vous pouvez calfeutrer les portes et les fenêtres, histoire de bannir les courants d’air.",
       "Fermer les volets la nuit ou installer des rideaux isolants.",
       "Réduire votre consommation de chauffage, lancez-vous un défi : réduisez votre chauffage de 1° ! Votre porte-monnaie vous remerciera, cela réduira votre facture de 7% !!",
-      "Prenez des douches plus courtes",
-      "Favoriser les bains aux douches",
       "Favoriser des machines à 30°",
-      "Installation d’un brise-jet réduisant le volume d’eau",
+      "Favoriser les douches plus courtes aux bains",
       "Préférer un bon vieux ventilo à la clim l’été",
       "Utiliser les transports en commun",
       "Composter ses déchets et recycler",
