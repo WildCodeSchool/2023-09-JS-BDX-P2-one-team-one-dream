@@ -1,4 +1,4 @@
-import { createContext, useContext, useState, React } from "react";
+import { createContext, useContext, useState, React, useMemo } from "react";
 import { useNavigate } from "react-router-dom";
 import PropTypes from "prop-types";
 
@@ -12,12 +12,6 @@ export function RequestApiProvider({ children }) {
   const handleSubmit = async (event) => {
     event.preventDefault();
     const electricityValue = responses.electricityResponse;
-    const flightDetails = [
-      {
-        departure_airport: responses.selectOption1,
-        destination_airport: responses.selectOption2,
-      },
-    ];
     const newEstimate = { elec: null, flight: null };
     if (electricityValue) {
       try {
@@ -44,7 +38,7 @@ export function RequestApiProvider({ children }) {
         console.error("Error fetching electricity estimate:", error);
       }
     }
-    if (flightDetails) {
+    if (responses.flightResponses) {
       try {
         const flightResponse = await fetch(
           "https://www.carboninterface.com/api/v1/estimates",
@@ -57,33 +51,35 @@ export function RequestApiProvider({ children }) {
             body: JSON.stringify({
               type: "flight",
               passengers: 1,
-              legs: flightDetails,
+              legs: responses.flightResponses,
             }),
           }
         );
         const flightData = await flightResponse.json();
         newEstimate.flight = flightData.data.attributes;
-        // on a rajouté un spread operator à newEstimate entre moustache pour dire:
-        // remet moi à jour setEstimate en initialisant un nouvel objet en prenant toutes les valeurs de newEstimate
-        // ca permet de s'assurer qu'il y a bien une mise à jour fait au niveau de l'affichage du composant qui utilise estimate donc : Estimate.
         setEstimate({ ...newEstimate });
       } catch (error) {
         console.error("Error fetching flight estimate:", error);
       }
     }
 
-    // On avait un window.location.href mais celui là rechargait la page à chaque fois en la remettant à zero donc en resetant toutes les valeurs stockées donc sur la page result obligatoirement on avait plus les données.
-    // on a utilisé le Hook UseNaviguate qu'on a importé en haut et qu'on a stocké dans une variable ligne 11
     navigate("/result");
   };
 
-  // dans les valeurs du provider on avait oublié de passer estimate donc on le recuperait pas sur ses enfants
+  const addFlight = (index, selectFlightData) => {
+    if (!responses.flightResponses) {
+      responses.flightResponses = [];
+    }
+
+    responses.flightResponses[index] = selectFlightData;
+    setResponses(responses);
+  };
+  const contextValues = useMemo(
+    () => ({ setResponses, handleSubmit, estimate, addFlight, responses }),
+    [setResponses, handleSubmit, estimate, addFlight, responses]
+  );
   return (
-    <RequestApi.Provider
-      value={{ responses, setResponses, handleSubmit, estimate }}
-    >
-      {children}
-    </RequestApi.Provider>
+    <RequestApi.Provider value={contextValues}>{children}</RequestApi.Provider>
   );
 }
 RequestApiProvider.propTypes = {

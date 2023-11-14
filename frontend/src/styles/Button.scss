@@ -2,7 +2,7 @@
 
 .buttonQuiz {
   background-color: #ffc443;
-  width: 60%;
+  width: 50%;
   font-family: "Quattrocento Sans", sans-serif;
   font-size: 20px;
   border-radius: 60px;
@@ -12,15 +12,17 @@
   display: block;
   border: 3px solid #ffc443;
   box-shadow: 2px 2px 2px rgba(43, 41, 41, 0.501);
+  transition: transform 0.3s ease-in-out;
+  cursor: pointer;
 }
 
 .buttonQuiz:hover {
-  color: white;
+  transform: scale(1.07);
 }
 
 @media screen and (min-width: 768px) {
   .buttonQuiz {
-    width: 30%;
+    width: 20%;
     font-size: 35px;
     padding: 10px 6px 10px 6px;
   }

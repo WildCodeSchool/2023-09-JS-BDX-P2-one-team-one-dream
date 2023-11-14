@@ -25,6 +25,7 @@ function QuizzCar({ setCurrentQuestion }) {
         <label htmlFor="didYouHaveACar">Avez vous une voiture?</label>
         <div>
           <button
+            className="flight_button"
             type="button"
             name="didYouHaveACar"
             id="didYouHaveACar"
@@ -33,6 +34,7 @@ function QuizzCar({ setCurrentQuestion }) {
             Oui
           </button>
           <button
+            className="flight_button"
             type="button"
             name="didYouHaveACar"
             id="didYouHaveACar"
@@ -45,31 +47,16 @@ function QuizzCar({ setCurrentQuestion }) {
 
       {showCarQuestions && (
         <div className="question">
-          <div>
-            <label htmlFor="whatTypeOfFuel">
-              Quel type de carburant utilisez-vous?
-            </label>
-            <div>
-              <select name="whatTypeOfFuel" id="whatTypeOfFuel">
-                <option value="electric">Electrique</option>
-                <option value="fuel">Essence</option>
-                <option value="gazoil">Diesel</option>
-              </select>
-            </div>
-          </div>
-
-          <div className="question">
-            <label htmlFor="howManyKm">
-              Combien de kilomètres parcourez-vous chaque mois?
-            </label>
-            <input
-              type="number"
-              name="howManyKm"
-              id="howManyKm"
-              min="0"
-              onChange={handleCarChange}
-            />
-          </div>
+          <label htmlFor="howManyKm">
+            Combien de kilomètres parcourez-vous chaque mois?
+          </label>
+          <input
+            type="number"
+            name="howManyKm"
+            id="howManyKm"
+            min="0"
+            onChange={handleCarChange}
+          />
         </div>
       )}
     </div>

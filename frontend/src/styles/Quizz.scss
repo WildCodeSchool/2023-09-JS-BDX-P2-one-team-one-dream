@@ -11,39 +11,114 @@
 
   .content {
     position: relative;
-    background: #fff3e0;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    background: linear-gradient(to top, #fff3e0 80%, #aedd9d 20%);
     border-radius: 8px;
-    width: 600px;
-    min-height: 500px;
-    padding: 20px 10px;
+    width: 400px;
+    min-height: 600px;
     text-align: center;
     box-sizing: border-box;
 
-    button {
-      margin-top: 20px;
+    .quizz_button {
+      margin-bottom: 50px;
+      width: 100px;
+      height: 30px;
+      border-radius: 20px;
+      border: 1px solid grey;
+      background-color: rgba(128, 197, 103, 0.62);
+      cursor: pointer;
+
+      &:hover {
+        box-shadow: 4px 4px 6px 0 rgba(0, 0, 0, 0.5);
+      }
     }
 
     .question {
       display: flex;
       flex-direction: column;
-      gap: 15px;
       align-items: center;
       justify-content: center;
     }
 
     .quizz_header {
       margin: 0;
-      padding: 10px;
-      display: flex;
+      padding: 30px 10px 10px 10px;
       flex-direction: row;
       justify-content: center;
-      right: 20px;
+      color: rgb(56, 53, 53);
 
+      h1 {
+        margin: 20px 0 0 0;
+        font-size: 28px;
+      }
       .close {
-        right: -60px;
-        top: -20px;
-        color: red;
-        position: relative;
+        position: absolute;
+        top: 5px;
+        right: 5px;
+        background-color: #aedd9d;
+        border: none;
+        cursor: pointer;
+      }
+      .close:hover {
+        transition: transform 0.3s ease-in-out;
+        transform: scale(1.05);
+      }
+    }
+
+    label {
+      font-size: 22px;
+      color: rgb(56, 53, 53);
+      font-family: "Quattrocento Sans", sans-serif;
+      margin-bottom: 30px;
+    }
+
+    input,
+    select {
+      width: 150px;
+      border-radius: 2px;
+      height: 25px;
+      margin: 15px 0;
+      border: 1px solid grey;
+    }
+
+    .flight_button {
+      width: 100px;
+      border-radius: 5px;
+      height: 25px;
+      margin: 20px;
+      background-color: #e4bb78;
+      cursor: pointer;
+    }
+
+    .flight_select {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .label_flight {
+      margin: 0;
+    }
+
+    .flight_input {
+      margin-left: 10px;
+    }
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .modal {
+    .content {
+      width: 800px;
+      .quizz_header {
+        .close {
+          right: 10px;
+          top: 10px;
+        }
       }
     }
   }
