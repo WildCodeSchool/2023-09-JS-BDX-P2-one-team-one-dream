@@ -1,5 +1,6 @@
 import PropTypes from "prop-types";
 import { useApi } from "../context/RequestApi";
+import "../styles/Result.scss";
 
 function Estimate({ allResults }) {
   const { responses, estimate } = useApi();
@@ -24,20 +25,22 @@ function Estimate({ allResults }) {
   return (
     <div>
       <div className="final_result">
-        <img src={selectedOption.image} alt="green gauge" />
+        <img
+          className="img_level"
+          src={selectedOption.image}
+          alt="green gauge"
+        />
         <p> Résultat estimé : {FinalResult} kg de CO2</p>
         <h3>{selectedOption.title}</h3>
         <p>Vous avez {selectedOption.greenpoint} Green Point</p>
       </div>
-      <div className="conclu-container">
-        <p className="conclusion">{selectedOption.conclusion}</p>
-        <h4>Avez-vous pensé à :</h4>
-        <ul>
-          {selectedOption.axes.map((axis, index) => (
-            <li key={`axis-${index + 1}`}>{axis}</li>
-          ))}
-        </ul>
-      </div>
+      <p className="conclusion">{selectedOption.conclusion}</p>
+      <h4>Avez-vous pensé à :</h4>
+      <ul>
+        {selectedOption.axes.map((axis, index) => (
+          <li key={`axis-${index + 1}`}>{axis}</li>
+        ))}
+      </ul>
     </div>
   );
 }
