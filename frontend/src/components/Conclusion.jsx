@@ -8,15 +8,16 @@ const allResults = [
     image: "./src/assets/jauge5.png",
     conclusion:
       "Vous êtes un warrior GreenPoint ! Bravo, vous êtes en dessous de la moyenne nationale!!! Vous avez totalement pris conscience du changement climatique et votre comportement s’en ressent.Vous faites des efforts au quotidien, et votre impact environnemental est très responsable! Toutes nos félicitations!!",
-    axes: `Avez -vous pensé à : 
-    -Attendre que le lave- vaisselle et le lave - linge soient remplis pour lacer la machine. 
-    -Arrêter de multiplier les sources d’éclairage, même si « c’est joli les ambiances tamisées »
-    -Mieux placer les appareils froids chez soi pour éviter qu’ils se retrouvent à coté d’une source de chaleur, ce qui les incite à surconsommer.
-    -Revoir votre isolation surtout si vous avez un logement ancien.Oui, cela a un coût mais réconfortez vous en vous rappelant que c’est un investissement sur le long terme.
-    -Réduire votre consommation de chauffage, lancez - vous un défi : réduisez votre chauffage de 1° !Votre porte - monnaie vous remerciera, cela réduira votre facture de 7 % !!
-    -Prenez des douches plus courtes
-    Favoriser des machines à 30°
-    Installation d’un brise - jet réduisant le volume d’eau
+    axes: `Avez -vous pensé à : _SPACE_\n
+    -Attendre que le lave- vaisselle et le lave - linge soient remplis pour lacer la machine. \n\n
+    -Arrêter de multiplier les sources d’éclairage, même si « c’est joli les ambiances tamisées »\n
+    -Mieux placer les appareils froids chez soi pour éviter qu’ils se retrouvent à coté d’une source de chaleur, ce qui les incite à surconsommer.\n
+    -Revoir votre isolation surtout si vous avez un logement ancien.Oui, cela a un coût mais réconfortez vous en vous rappelant que c’est un investissement sur le long terme.\n
+    -Réduire votre consommation de chauffage, lancez - vous un défi : réduisez votre chauffage de 1° !\n
+    Votre porte - monnaie vous remerciera, cela réduira votre facture de 7 % !! _SPACE_\n
+    -Prenez des douches plus courtes \n
+    -Favoriser des machines à 30° \n
+    -Installation d’un brise - jet réduisant le volume d’eau _SPACE_\n
     Poser un récupérateur d’eau de pluie pour arroser les plantes du jardin
     Baisser la température de votre chauffe - eau, souvent surestimée, 55°C suffisent
     Privilégiez l’achat d’électroménager avec une étiquette énergie attestant une consommation raisonnable.La catégorie A, de couleur verte, est la meilleure!
@@ -81,23 +82,33 @@ const allResults = [
 ];
 
 function Conclusion() {
-  const result = 89;
+  const result = 400;
   let selectedOption = null;
 
-  if (result >= 60) {
+  if (result <= 551) {
     selectedOption = allResults[0];
-  } else if (result >= 30) {
+  } else if (result <= 751) {
     selectedOption = allResults[1];
   } else {
     selectedOption = allResults[2];
   }
 
-  const formatParagraphs = (text) => {
-    return text.split('\n').map((paragraph, index) => (
-      <p key={index}>{paragraph}</p>
-    ));
-  };
-
+  function formatParagraphs(text) {
+    const paragraphs = text.split('\n\n');
+    const result = [];
+  
+    paragraphs.forEach((paragraph, index) => {
+      // Ajoutez un espace entre les paragraphes si le texte contient le string spécial
+      if (paragraph.includes('_SPACE_')) {
+        result.push(<p key={index}>{paragraph.replace('_SPACE_', '')}</p>);
+        result.push(<br key={`${index}-br`} />);
+      } else {
+        result.push(<p key={index}>{paragraph}</p>);
+      }
+    });
+  
+    return result;
+  }
   return (
     <div className="conclu-container">
       <div>
