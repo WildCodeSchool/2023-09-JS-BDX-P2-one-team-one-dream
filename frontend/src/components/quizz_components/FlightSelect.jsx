@@ -19,8 +19,8 @@ function FlightSelect({ index }) {
   }, [arrival, departure]);
 
   return (
-    <div key={`index - ${index}`}>
-      <label htmlFor={`departures-${index}`}>
+    <div className="flight_select" key={`index - ${index}`}>
+      <label className="label_flight" htmlFor={`departures-${index}`}>
         Renseignez votre aéroport de départ pour le vol {index + 1} :
       </label>
       <select
@@ -36,7 +36,7 @@ function FlightSelect({ index }) {
         <option value="yul">Montreal</option>
         <option value="sin">Singapour</option>
       </select>
-      <label htmlFor={`arrivals-${index}`}>
+      <label className="label_flight" htmlFor={`arrivals-${index}`}>
         Renseignez votre aéroport d'arrivée pour le vol {index + 1} :
       </label>
       <select

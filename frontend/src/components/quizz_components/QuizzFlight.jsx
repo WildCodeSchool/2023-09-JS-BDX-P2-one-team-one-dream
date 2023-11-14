@@ -25,6 +25,7 @@ function QuizzFlight({ setCurrentQuestion }) {
             name="didYouTakeFlight"
             id="didYouTakeFlight"
             onClick={() => setShowFlightQuestions(true)}
+            className="flight_button"
           >
             Oui
           </button>
@@ -33,6 +34,7 @@ function QuizzFlight({ setCurrentQuestion }) {
             name="didYouTakeFlight"
             id="didYouTakeFlight"
             onClick={() => setCurrentQuestion(2)}
+            className="flight_button"
           >
             Non
           </button>
@@ -40,18 +42,17 @@ function QuizzFlight({ setCurrentQuestion }) {
       </div>
       {showFlightQuestions && (
         <div className="flightquestionscontent">
-          <div>
-            <label htmlFor="howManyFlight">
-              Combien de vols avez-vous effectués ?
-            </label>
-            <input
-              type="number"
-              name="howManyFlight"
-              id="howManyFlight"
-              min="1"
-              onChange={handleNumberOfFlightsChange}
-            />
-          </div>
+          <label htmlFor="howManyFlight">
+            Combien de vols avez-vous effectués ?
+          </label>
+          <input
+            className="flight_input"
+            type="number"
+            name="howManyFlight"
+            id="howManyFlight"
+            min="1"
+            onChange={handleNumberOfFlightsChange}
+          />
         </div>
       )}
       {showAirportSelectors && numberOfFlights > 0 && (
