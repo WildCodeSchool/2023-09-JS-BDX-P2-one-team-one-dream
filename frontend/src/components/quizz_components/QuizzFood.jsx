@@ -25,6 +25,7 @@ function QuizzFood({ setCurrentQuestion }) {
         <label htmlFor="typeOfFood">Quel est votre régime alimentaire?</label>
         <div>
           <button
+            className="flight_button"
             type="button"
             name="typeOfFood"
             id="typeOfFood"
@@ -33,6 +34,7 @@ function QuizzFood({ setCurrentQuestion }) {
             Carnivore
           </button>
           <button
+            className="flight_button"
             type="button"
             name="typeOfFood"
             id="typeOfFood"

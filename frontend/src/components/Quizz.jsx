@@ -41,6 +41,7 @@ function Quizz({ setTogglePopUp }) {
               xmlns="http://www.w3.org/2000/svg"
               width="30"
               height="30"
+              color="red"
               className="close"
               viewBox="0 0 16 16"
             >
@@ -51,11 +52,10 @@ function Quizz({ setTogglePopUp }) {
         </div>
         {components.map((Component, index) =>
           index === currentQuestion ? (
-            <div className="question_container">
-              <Component setCurrentQuestion={setCurrentQuestion} />
-            </div>
+            <Component setCurrentQuestion={setCurrentQuestion} />
           ) : null
         )}
+
         {isLastQuestion ? (
           <button type="submit" onClick={handleSubmit} className="quizz_button">
             Envoyer

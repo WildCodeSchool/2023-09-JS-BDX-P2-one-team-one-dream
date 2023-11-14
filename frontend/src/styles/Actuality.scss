@@ -10,14 +10,10 @@
   font-size: 20px;
 }
 
-.text-actu {
-  font-size: 14px;
-}
-
 .title-actu,
 .text-actu {
   font-family: "Inter", sans-serif;
-  color: white;
+  color: black;
 }
 
 .container_actu {
@@ -46,6 +42,9 @@
     &:nth-child(2) {
       flex-direction: row-reverse;
     }
+    .text-actu {
+      font-size: 14px;
+    }
 
     .img {
       width: 120px;
@@ -69,6 +68,9 @@
 @media screen and (min-width: 768px) {
   .container_actu {
     width: 80%;
+    .title-actu {
+      font-size: 30px;
+    }
     .actu-container {
       display: flex;
       justify-content: space-around;
@@ -85,9 +87,6 @@
         .img {
           width: 200px;
           height: 120px;
-        }
-        .title-actu {
-          font-size: 30px;
         }
         .text-actu {
           font-size: 15px;

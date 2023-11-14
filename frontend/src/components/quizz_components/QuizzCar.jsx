@@ -25,6 +25,7 @@ function QuizzCar({ setCurrentQuestion }) {
         <label htmlFor="didYouHaveACar">Avez vous une voiture?</label>
         <div>
           <button
+            className="flight_button"
             type="button"
             name="didYouHaveACar"
             id="didYouHaveACar"
@@ -33,6 +34,7 @@ function QuizzCar({ setCurrentQuestion }) {
             Oui
           </button>
           <button
+            className="flight_button"
             type="button"
             name="didYouHaveACar"
             id="didYouHaveACar"
