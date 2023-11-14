@@ -4,6 +4,11 @@ function AboutUs() {
   return (
     <div className="Container_AboutUs">
       <h2 className="Title_AboutUs">A PROPOS...</h2>
+      <img
+        className="Image_AboutUs"
+        src="../src/assets/nous.jpeg"
+        alt="Equipe des créateurs du site"
+      />
       <p className="Description_AboutUs">
         Notre génération étant particulièrement concernée par le changement
         climatique, nous avons voulu nous inscrire dans une démarche responsable
@@ -13,11 +18,6 @@ function AboutUs() {
         d’élans solidaires pour notre planète qui permettront d’évoluer vers une
         communauté toujours plus respectueuse de l’environnement.
       </p>
-      <img
-        className="Image_AboutUs"
-        src="../src/assets/nous.jpeg"
-        alt="Equipe des créateurs du site"
-      />
     </div>
   );
 }
