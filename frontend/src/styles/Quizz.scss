@@ -63,7 +63,8 @@
         cursor: pointer;
       }
       .close:hover {
-        stroke: red;
+        transition: transform 0.3s ease-in-out;
+        transform: scale(1.05);
       }
     }
 

@@ -27,7 +27,7 @@ function Actuality() {
         {Events.map((event) => {
           return (
             <div className="event" key={event.title}>
-              <a href={event.link}>
+              <a href={event.link} target="_blank" rel="noreferrer">
                 <img className="img" src={event.image} alt={event.title} />
               </a>
               <h4 className="text-actu">{event.title}</h4>
