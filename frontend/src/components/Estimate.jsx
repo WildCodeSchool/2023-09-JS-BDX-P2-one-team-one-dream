@@ -27,6 +27,7 @@ function Estimate({ allResults }) {
   return (
     <div className="result">
       <div className="final_result">
+        <h3>{selectedOption.title}</h3>
         <img
           className="img_level"
           src={selectedOption.image}
@@ -35,7 +36,6 @@ function Estimate({ allResults }) {
         <div className="bravo">
           <p> Résultat estimé : {FinalResult} kg de CO2</p>
           <br />
-          <h3>{selectedOption.title}</h3>
 
           <p>
             Vous avez gagné <span>{selectedOption.greenpoint}</span> Green

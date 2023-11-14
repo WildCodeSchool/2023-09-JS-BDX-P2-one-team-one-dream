@@ -18,7 +18,7 @@
   padding-top: 20px;
   text-align: center;
   margin: 20px 0;
-  padding-bottom: 40px;
+  padding-bottom: 20px;
 
   .Title_Points {
     color: rgb(0, 0, 0);
@@ -68,5 +68,12 @@
     grid-template-columns: repeat(2, 1fr);
     grid-template-rows: repeat(2, 1fr);
     gap: 20px;
+  }
+
+  .Container_Points {
+    margin: 40px auto;
+    .Title_Points {
+      font-size: 2.5em;
+    }
   }
 }
