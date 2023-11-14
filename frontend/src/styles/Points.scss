@@ -37,16 +37,27 @@
     text-align: center;
     font-weight: bold;
 
+    h3 {
+      color: green;
+      margin-bottom: 10px;
+    }
+
     .Cards {
       width: 100%;
       max-width: 300px;
-      margin: 18px auto;
+      margin: 22px auto;
     }
 
     .image_Cards {
       padding: 10px 0 10px 0;
       width: 300px;
       height: 180px;
+      transition: transform 0.3s ease-in-out;
+      cursor: pointer;
+
+      &:hover {
+        transform: scale(1.05);
+      }
     }
   }
 }

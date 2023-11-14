@@ -14,20 +14,11 @@ const allResults = [
     -Mieux placer les appareils froids chez soi pour éviter qu’ils se retrouvent à coté d’une source de chaleur, ce qui les incite à surconsommer.\n
     -Revoir votre isolation surtout si vous avez un logement ancien.Oui, cela a un coût mais réconfortez vous en vous rappelant que c’est un investissement sur le long terme.\n
     -Réduire votre consommation de chauffage, lancez - vous un défi : réduisez votre chauffage de 1° !\n
-    Votre porte - monnaie vous remerciera, cela réduira votre facture de 7 % !! _SPACE_\n
+    Votre porte - monnaie vous remerciera, cela réduira votre facture de 7 % !! \n
     -Prenez des douches plus courtes \n
     -Favoriser des machines à 30° \n
     -Installation d’un brise - jet réduisant le volume d’eau _SPACE_\n
-    Poser un récupérateur d’eau de pluie pour arroser les plantes du jardin
-    Baisser la température de votre chauffe - eau, souvent surestimée, 55°C suffisent
-    Privilégiez l’achat d’électroménager avec une étiquette énergie attestant une consommation raisonnable.La catégorie A, de couleur verte, est la meilleure!
-    Installer des panneaux solaires
-    Préférer un bon vieux ventilo à la clim l’été
-    Acheter responsable et localement
-    Manger moins de viande
-    Planter des arbres et des plantes
-    Privilégier les produits biologiques
-    Eviter les emballages plastique et les produits jetables, achetez par exemple dans des épiceries qui vous permettent des ramener vos contenants.Ex : « La Recharge » à Bordeaux`,
+  `,
   },
   {
     id: 2,
