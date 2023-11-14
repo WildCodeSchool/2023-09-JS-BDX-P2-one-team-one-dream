@@ -21,7 +21,7 @@ const Events = [
 
 function Actuality() {
   return (
-    <div className="container">
+    <div className="container_actu">
       <h2 className="title-actu">ACTUALITÉS</h2>
       <div className="actu-container">
         {Events.map((event) => {

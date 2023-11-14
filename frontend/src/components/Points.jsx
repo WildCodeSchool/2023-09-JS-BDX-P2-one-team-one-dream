@@ -8,7 +8,7 @@ function Points() {
         <div className="Cards">
           <img
             className="image_Cards"
-            src="https://placehold.co/200x100.png"
+            src="./src/assets/LogoTBM.png"
             alt="Promo 1"
           />
           <div className="Title_Cards">
