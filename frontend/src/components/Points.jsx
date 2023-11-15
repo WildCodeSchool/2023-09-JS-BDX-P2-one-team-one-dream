@@ -4,6 +4,15 @@ function Points() {
   return (
     <div className="container Container_Points">
       <h2 className="Title_Points">Et mes GREENPoints, j'en fais quoi?</h2>
+      <p className="description_points">
+        Nos greenPoints, sont de précieux points récompensant des comportements
+        écologiques. Vous pouvez échanger cette monnaie verte contre des
+        avantages économiques, notamment des réductions sur des abonnements
+        mensuels pour les transports en commun. C'est une manière tangible et
+        bénéfique de récompenser vos actions en faveur de l'environnement.
+        Explorez les possibilités et maximisez vos GreenPoints pour une
+        expérience plus durable et avantageuse !
+      </p>
       <div className="Points_Cards">
         <div className="Cards">
           <a
@@ -52,7 +61,7 @@ function Points() {
             </div>
           </a>
           <div className="Title_Cards">
-            <h3>Pour 230 Points</h3>
+            <h3>Pour 50 Points</h3>
             <h5>-10 euros sur votre prochain trajet BlablaCar</h5>
           </div>
         </div>

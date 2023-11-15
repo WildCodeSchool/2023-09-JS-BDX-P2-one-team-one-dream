@@ -44,23 +44,36 @@ span {
 }
 
 h3 {
-  font-size: 30px;
+  font-size: 23px;
   padding: 20px 0;
 }
 
 @media screen and (min-width: 820px) {
   .final_result {
-    width: 50%;
+    width: 43%;
     margin: 40px auto;
   }
 
   .conclusion {
     text-align: center;
-  }
-  .conclusion {
     width: 70%;
+    font-size: larger;
   }
   .axes {
     width: 50%;
+    font-size: larger;
+  }
+  .bravo {
+    font-size: 25px;
+  }
+
+  h3 {
+    font-size: 35px;
+  }
+
+  .result {
+    h4 {
+      font-size: 40px;
+    }
   }
 }

@@ -5,7 +5,7 @@ import "../styles/Estimate.scss";
 const allResults = [
   {
     id: 1,
-    greenpoint: 150,
+    greenpoint: 300,
     title: "Bravo, vous êtes un Green Warrior!!",
     image: "./src/assets/jauge5.png",
     conclusion:
@@ -26,7 +26,7 @@ const allResults = [
   },
   {
     id: 2,
-    greenpoint: 100,
+    greenpoint: 150,
     title: "Vous êtes un Green bof",
     image: "./src/assets/jauge3.png",
     conclusion: `Vous êtes un bon GreenPoint !
