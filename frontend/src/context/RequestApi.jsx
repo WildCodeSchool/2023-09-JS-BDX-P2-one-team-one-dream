@@ -13,7 +13,7 @@ export function RequestApiProvider({ children }) {
     event.preventDefault();
     const electricityValue = responses.electricityResponse;
     const newEstimate = { elec: null, flight: null };
-    if (electricityValue) {
+    if (electricityValue && electricityValue.length > 0) {
       try {
         const electricityResponse = await fetch(
           "https://www.carboninterface.com/api/v1/estimates",
@@ -38,7 +38,7 @@ export function RequestApiProvider({ children }) {
         console.error("Error fetching electricity estimate:", error);
       }
     }
-    if (responses.flightResponses) {
+    if (responses.flightResponses && responses.flightResponses.length > 0) {
       try {
         const flightResponse = await fetch(
           "https://www.carboninterface.com/api/v1/estimates",

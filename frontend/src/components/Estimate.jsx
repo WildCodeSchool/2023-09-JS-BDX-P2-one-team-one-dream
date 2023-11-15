@@ -8,14 +8,13 @@ function Estimate({ allResults }) {
   let selectedOption = {};
 
   const FinalResult = parseInt(
-    +estimate.elec.carbon_kg * 3.66 +
-      +estimate.flight.carbon_kg * 3.66 +
-      +responses.carResponse * 0.22 +
-      +responses.waterResponse * 0.00013 +
-      +responses.foodResponse * 4 * 12.5,
+    +((estimate.elec && estimate.elec.carbon_kg) || 0) * 3.66 +
+      +((estimate.flight && estimate.flight.carbon_kg) || 0) * 3.66 +
+      +((responses.carResponse && responses.carResponse) || 0) * 0.22 +
+      +((responses.waterResponse && responses.waterResponse) || 0) * 0.00013 +
+      +((responses.foodResponse && responses.foodResponse) || 0) * 4 * 12.5,
     10
   );
-
   if (FinalResult <= 550) {
     selectedOption = option1;
   } else if (FinalResult <= 751) {
