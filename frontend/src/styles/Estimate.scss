@@ -1,0 +1,79 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@200&family=Jomhuria&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=EB+Garamond&display=swap");
+
+.result {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 20px;
+
+  h4 {
+    font-size: 27px;
+    font-family: "EB Garamond";
+    text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  }
+}
+.conclusion {
+  margin: 0 15px;
+  font-family: "Inter", sans-serif;
+  text-align: left;
+  background-color: rgba(123, 199, 96, 0.62);
+  padding: 15px;
+  border-radius: 10px;
+}
+.final_result {
+  box-shadow: 0px 4px 4px 4px rgba(0, 0, 0, 0.25);
+  margin: 20px auto 10px;
+  width: 80%;
+  padding-bottom: 15px;
+}
+
+.img_level {
+  width: 60%;
+}
+.axes {
+  text-align: left;
+  font-family: "Inter", sans-serif;
+  margin: 0 23px;
+}
+
+span {
+  color: green;
+  font-weight: bold;
+}
+
+h3 {
+  font-size: 23px;
+  padding: 20px 0;
+}
+
+@media screen and (min-width: 820px) {
+  .final_result {
+    width: 43%;
+    margin: 40px auto;
+  }
+
+  .conclusion {
+    text-align: center;
+    width: 70%;
+    font-size: larger;
+  }
+  .axes {
+    width: 50%;
+    font-size: larger;
+  }
+  .bravo {
+    font-size: 25px;
+  }
+
+  h3 {
+    font-size: 35px;
+  }
+
+  .result {
+    h4 {
+      font-size: 40px;
+    }
+  }
+}

@@ -1,4 +1,5 @@
 import "../styles/Header.scss";
+import { Link } from "react-router-dom";
 
 function Header() {
   return (
@@ -94,7 +95,9 @@ function Header() {
           </defs>
         </svg>
         <h1 className="title">
-          <span className="span">GREEN</span> POINT
+          <Link to="/">
+            <span className="span">GREEN</span> POINT
+          </Link>
         </h1>
       </div>
       <div className="banner">
