@@ -1,4 +1,14 @@
 @import url("https://fonts.google.com/share?selection.family=Quattrocento");
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@500&family=Quattrocento+Sans&display=swap");
+
+.title_description {
+  text-align: center;
+  padding: 0;
+  font-family: "Inter", sans-serif;
+  font-size: 20px;
+  color: rgb(81, 157, 54);
+  margin-bottom: 20px;
+}
 
 .bio {
   font-family: "Quattrocento Sans", sans-serif;
@@ -11,6 +21,10 @@
 }
 
 @media screen and (min-width: 768px) {
+  .title_description {
+    font-size: 40px;
+    margin: 10px 0 50px 0;
+  }
   .bio {
     font-size: 30px;
   }

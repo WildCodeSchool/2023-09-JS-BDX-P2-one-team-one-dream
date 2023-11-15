@@ -82,13 +82,14 @@
       border-radius: 2px;
       height: 25px;
       margin: 15px 0;
-      border: 1px solid grey;
+      border: none;
+      box-shadow: 4px 4px 6px 0 rgba(0, 0, 0, 0.5);
     }
 
     .flight_button {
       width: 100px;
-      border-radius: 5px;
-      height: 25px;
+      border-radius: 10px;
+      height: 30px;
       margin: 20px;
       background-color: #e4bb78;
       cursor: pointer;
@@ -115,6 +116,12 @@
   .modal {
     .content {
       width: 800px;
+
+      input,
+      select {
+        width: 200px;
+        height: 30px;
+      }
 
       .quizz_header {
         .close {

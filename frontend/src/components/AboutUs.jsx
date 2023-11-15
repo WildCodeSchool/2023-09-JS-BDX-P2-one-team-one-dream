@@ -17,7 +17,7 @@ function AboutUs() {
           empreinte carbone favorise la prise de conscience de son implication
           personnelle. <br />
           Nous avons la ferme conviction que c’est la somme de belles actions et
-          d’élans solidaires pour notre planète qui permettront d’évoluer vers
+          d’élans solidaires pour notre planète, qui permettront d’évoluer vers
           une communauté toujours plus respectueuse de l’environnement.
         </p>
       </div>

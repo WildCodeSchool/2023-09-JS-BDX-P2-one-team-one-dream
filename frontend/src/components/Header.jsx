@@ -6,8 +6,8 @@ function Header() {
     <>
       <div className="header">
         <svg
-          width="39"
-          height="38"
+          width="45"
+          height="44"
           viewBox="0 0 39 38"
           fill="none"
           xmlns="http://www.w3.org/2000/svg"
@@ -61,8 +61,8 @@ function Header() {
               id="filter1_d_0_1"
               x="1"
               y="7"
-              width="26"
-              height="25"
+              width="32"
+              height="31"
               filterUnits="userSpaceOnUse"
               colorInterpolationFilters="sRGB"
             >
