@@ -9,10 +9,18 @@ function QuizzFlight({ setCurrentQuestion }) {
 
   const handleNumberOfFlightsChange = (e) => {
     const numFlights = parseInt(e.target.value, 10);
-    setNumberOfFlights(numFlights);
+    const limitedNumberOfFlights = Math.min(numFlights, 2);
+    setNumberOfFlights(limitedNumberOfFlights);
     setShowAirportSelectors(true);
   };
 
+  const handleNumberOfFlightsInput = (e) => {
+    const inputValue = e.target.value;
+    if (parseInt(inputValue, 10) > 2) {
+      e.preventDefault();
+      e.target.value = "2";
+    }
+  };
   return (
     <div>
       <div>
@@ -51,10 +59,13 @@ function QuizzFlight({ setCurrentQuestion }) {
             name="howManyFlight"
             id="howManyFlight"
             min="1"
+            max="2"
             onChange={handleNumberOfFlightsChange}
+            onInput={handleNumberOfFlightsInput}
           />
         </div>
       )}
+
       {showAirportSelectors && numberOfFlights > 0 && (
         <div>
           {[...Array(numberOfFlights)].map((_, index) => (
