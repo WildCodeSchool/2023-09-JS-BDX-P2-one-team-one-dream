@@ -20,7 +20,7 @@ export function RequestApiProvider({ children }) {
           {
             method: "POST",
             headers: {
-              Authorization: "Bearer PWvZf3Gf1KeAheUNolalw",
+              Authorization: `Bearer ${process.env.TOKEN}`,
               "Content-Type": "application/json",
             },
             body: JSON.stringify({
@@ -45,7 +45,7 @@ export function RequestApiProvider({ children }) {
           {
             method: "POST",
             headers: {
-              Authorization: "Bearer PWvZf3Gf1KeAheUNolalw",
+              Authorization: `Bearer ${process.env.TOKEN}`,
               "Content-Type": "application/json",
             },
             body: JSON.stringify({
