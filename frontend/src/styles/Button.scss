@@ -2,7 +2,7 @@
 
 .buttonQuiz {
   background-color: #ffc443;
-  width: 50%;
+  width: 200px;
   font-family: "Quattrocento Sans", sans-serif;
   font-size: 20px;
   border-radius: 60px;
@@ -22,7 +22,7 @@
 
 @media screen and (min-width: 768px) {
   .buttonQuiz {
-    width: 20%;
+    width: 400px;
     font-size: 35px;
     padding: 10px 6px 10px 6px;
   }
