@@ -63,7 +63,7 @@ function Points() {
           </a>
           <div className="Title_Cards">
             <h3>Pour 50 Points</h3>
-            <h5>-10 euros sur votre prochain trajet BlablaCar</h5>
+            <h5>-10% sur votre prochain trajet BlablaCar</h5>
           </div>
         </div>
         <div className="Cards">
