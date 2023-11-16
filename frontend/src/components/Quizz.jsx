@@ -52,7 +52,10 @@ function Quizz({ setTogglePopUp }) {
         </div>
         {components.map((Component, index) =>
           index === currentQuestion ? (
-            <Component setCurrentQuestion={setCurrentQuestion} />
+            <Component
+              key={currentQuestion}
+              setCurrentQuestion={setCurrentQuestion}
+            />
           ) : null
         )}
 

@@ -5,11 +5,12 @@ function Points() {
     <div className="container Container_Points">
       <h2 className="Title_Points">Et mes GREENPoints, j'en fais quoi?</h2>
       <p className="description_points">
-        Nos greenPoints, sont de précieux points récompensant des comportements
+        Nos GreenPoints, sont de précieux points récompensant des comportements
         écologiques. Vous pouvez échanger cette monnaie verte contre des
         avantages économiques, notamment des réductions sur des abonnements
         mensuels pour les transports en commun. C'est une manière tangible et
-        bénéfique de récompenser vos actions en faveur de l'environnement.
+        bénéfique de récompenser vos actions en faveur de l'environnement.{" "}
+        <br />
         Explorez les possibilités et maximisez vos GreenPoints pour une
         expérience plus durable et avantageuse !
       </p>

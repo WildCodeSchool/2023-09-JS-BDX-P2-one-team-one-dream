@@ -54,7 +54,16 @@ function Estimate({ allResults }) {
 }
 
 Estimate.propTypes = {
-  allResults: PropTypes.func.isRequired,
+  allResults: PropTypes.arrayOf(
+    PropTypes.shape({
+      id: PropTypes.number.isRequired,
+      greenpoint: PropTypes.number.isRequired,
+      title: PropTypes.string.isRequired,
+      image: PropTypes.string.isRequired,
+      conclusion: PropTypes.string.isRequired,
+      axes: PropTypes.arrayOf(PropTypes.string).isRequired,
+    })
+  ).isRequired,
 };
 
 export default Estimate;
