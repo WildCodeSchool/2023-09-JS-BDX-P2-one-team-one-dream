@@ -1,5 +1,8 @@
 import Estimate from "../components/Estimate";
 import Points from "../components/Points";
+import jauge5 from "../assets/jauge5.png";
+import jauge3 from "../assets/jauge3.png";
+import jauge1 from "../assets/jauge1.png";
 import "../styles/Estimate.scss";
 
 const allResults = [
@@ -7,7 +10,7 @@ const allResults = [
     id: 1,
     greenpoint: 300,
     title: "Bravo, vous êtes un Green Warrior!!",
-    image: "./src/assets/jauge5.png",
+    image: jauge5,
     conclusion:
       "Vous êtes un warrior GreenPoint ! Bravo, vous êtes en dessous de la moyenne nationale!!! Vous avez totalement pris conscience du changement climatique et votre comportement s’en ressent. Vous faites des efforts au quotidien, et votre impact environnemental est très responsable! Toutes nos félicitations!!",
     axes: [
@@ -28,7 +31,7 @@ const allResults = [
     id: 2,
     greenpoint: 150,
     title: "Vous êtes un Green bof",
-    image: "./src/assets/jauge3.png",
+    image: jauge3,
     conclusion: `Vous êtes un bon GreenPoint !
       Bravo, vous êtes dans la moyenne des français ! Vous avez quelques bons réflexes, et commencez à réaliser que nos comportements, même les plus petits, ont un impact réel sur notre environnement. Félicitations, vous êtes sur le bon chemin !`,
     axes: [
@@ -50,7 +53,7 @@ const allResults = [
     id: 3,
     greenpoint: 50,
     title: "Pas très Green tout ça!",
-    image: "./src/assets/jauge1.png",
+    image: jauge1,
     conclusion: `Vous allez enfin pouvoir faire des progrès !
     Franchement ce n’est pas très Green ! Bon, vous n’êtes pas sur le podium des champions de l’empreinte carbone mais vous avez la chance d’avoir une marge de progression intéressante. En effet, vous êtes au dessus de la moyenne nationale mais pleins de petits gestes peuvent vous permettre d’améliorer votre impact environnemental.`,
     axes: [
