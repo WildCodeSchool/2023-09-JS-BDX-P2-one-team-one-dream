@@ -1,4 +1,5 @@
 import "../styles/AboutUsStyle.scss";
+import nous from "../assets/nous.jpeg";
 
 function AboutUs() {
   return (
@@ -7,7 +8,7 @@ function AboutUs() {
       <div className="description_container">
         <img
           className="Image_AboutUs"
-          src="../src/assets/nous.jpeg"
+          src={nous}
           alt="Equipe des créateurs du site"
         />
         <p className="Description_AboutUs">
