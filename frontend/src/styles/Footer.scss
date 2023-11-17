@@ -1,0 +1,27 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@200&family=Jomhuria&display=swap");
+
+.footer {
+  display: flex;
+  position: relative;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  background-color: rgba(123, 199, 96, 0.62);
+  height: 30px;
+
+  .text-footer {
+    font-family: "Inter", sans-serif;
+    font-size: 8px;
+    padding: 0px 20px;
+    color: #358211;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .footer {
+    height: 50px;
+    .text-footer {
+      font-size: 15px;
+    }
+  }
+}
